@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Posts about bunnies (old posts, page 7) | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS for tag bunnies (en)" href="../categories/bunnies.xml">
+<link rel="canonical" href="http://percival-music.ca/categories/bunnies-7.html">
+<link rel="prev" href="../categories/bunnies-8.html" type="text/html">
+<link rel="next" href="../categories/bunnies-6.html" type="text/html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><link rel="alternate" type="application/rss+xml" title="RSS for tag bunnies (en)" href="../categories/bunnies.xml">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><header><h1>Posts about bunnies (old posts, page 7)</h1>
+    </header><div class="postindex">
+    <article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2009-01-27-questions-2.html" class="u-url">Questions Answered 2</a></h2>
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2009-01-27-questions-2.html" rel="bookmark"><time class="published dt-published" datetime="2009-01-27T22:15:00Z" title="2009-01-27 22:15">2009-01-27 22:15</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>More answers to emailed questions.</p>
+<p>Yes, I've definitely been getting work down. The jianqu version of MEWER
+is almost complete -- I reached the point where I know how to do all of
+the iphone interface stuff I need, so it's time to rewrite my project
+with proper software engineering practices, instead of throwing
+everything together.</p>
+<p>On Friday, we were finally able to purchase the iphone developer
+license. It took Apple a full week to fix their Apple Store so that we
+could purchase it from Singapore. I could buy the license by ssh'ing
+into a computer at UVic that I still had access to and using lynx.
+Text-based SSL-encrypted web-browsing for teh win! But I didn't want to
+buy the license myself, since I'm leaving this group in four months.
+It's more useful if one of the PhD students here buys it.</p>
+<p>Anyway, that prompted a flurry of activity on Saturday when we could
+actually begin testing. I immediately tried to do a trill -- none of the
+other people thought to try this, but it was obvious to me as a musician
+that this was the best way to test the overall system -- and was
+disgusted at the results. But after half an hour (with corrections to
+both the client and the server) we had it working quite well.</p>
+<p>As a side note, I'm not impressed with MVC (model-controller-view). I
+definitely see the point in separating the logic from the interface, but
+I just can't see a separate Controller as being truly useful. I mean,
+how many people really use multiple interfaces for exactly the same
+code? I've written the rhythm game three times now, and each time I've
+had to use a different language (1. Qt - C++ (or java or python with
+bindings) 2. haXe (to create flash or javascript) 3. objective C (for
+iphone)).</p>
+<div class="line-block">
+<div class="line">I'm even less impressed with Objective C. "Hey, let's take a language
+with well-known syntax relying on () for functions, and add syntax
+which relies on [] for functions in objects!" Seriously, you have code
+like this:</div>
+</div>
+<blockquote>
+<pre class="literal-block">
+for (int i = 0; i &lt; exerciseString.length; i++) {
+  int c = [exerciseString charAtIndex:i];
+  if (c==49) {
+    [arrayExerciseOnsets addObject:[NSNumber valueFromInt:1]];
+    int x = (480 - xOffsetR - xOffsetL) / exerciseString.length;
+    CGDrawRectangle (ctx, x, 0, 2, 50);
+  }
+}
+</pre>
+</blockquote>
+<div class="line-block">
+<div class="line"><br></div>
+<div class="line">Yuck! Ok, my use of a "magic number" is bad, but '1' doesn't work due
+to the magic of UTF-8 string handling. Specifying the ASCII value
+*does* work. Also, I'm mixing Model and View stuff here -- I'm not
+actually doing this in my program; I artificially dumped them together
+so you could see the wonders of [objective C] with pure C
+object-oriented code... all directly from the Apple docs. I mean, the
+Objective-C [object method:parameter] syntax is silly enough, but when
+they encourage you to use CoreGraphics with the pure C-style
+<tt class="docutils literal">CGFooBar( pointer_to_drawing_context, my, real, parameters);</tt> ...
+I'm left shaking my head in disbelief.</div>
+</div>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Back to normal life! The most complicated meal I've made so far is
+tuna-fish melt. Sliced bread, tuna, and a slice of processed cheese,
+into a microwave for 30 seconds, and then adding ketchup. If I could
+find macaroni and cheese here, or if the street food wasn't so cheap,
+I'd do more cooking. But there really isn't any point in it -- if all
+the stores weren't closed for the LNY, I wouldn't have even bothered
+with the tuna-fish.</p>
+<p>Singapore TV seems to be sit-com-like dramas. I saw a TV schedule by
+reading a magazine over the shoulder of somebody in the MRT once, and it
+listed Battle Star Galactica as being on at 11pm, but I didn't stay
+awake to check. There's 8 or 9 channels, and every time I've tried to
+look for something all the shows have been news or been Asian dramas
+(mostly in Chinese (or maybe Malay?), occasionally in Indian (or maybe
+Indonesian?)). They have subtitles -- often in two languages, so I could
+follow along if I wanted to. Oh wait; once I saw that BBC comedy with
+the mute comedian. Mr. Bean? It was on air about 10-15 years ago.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2009-01-27-getting-in-touch.html" class="u-url">Getting in touch with my feminine side</a></h2>
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2009-01-27-getting-in-touch.html" rel="bookmark"><time class="published dt-published" datetime="2009-01-27T16:31:00Z" title="2009-01-27 16:31">2009-01-27 16:31</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>... since no visit to a country on the other side of the world would be
+complete without such a letter to one's parents.</p>
+<p>Two days ago, I finally finished the complementary shampoo provided by
+the apartment. I'd bought some shampoo here on the first weekend. It's
+in a green plastic bottle and advertized itself "for long and smooth
+hair 2-in-1 conditioner". I don't know what "smooth hair" is, but I
+figured that since it was green it should be similar to the Pert Plus
+(tm) 2-in-1 shampoo I use at home.</p>
+<p>It works fine -- but it smells. Some kind of flowery scent. I checked
+the bottle again, but nowhere does it say "smelly". Then again, 90% of
+the text on the bottle is some foreign script (could be anything from
+Arabic to Thai, if Thai is a language, and if Thai is a language that
+doesn't use hieroglyphics).</p>
+<p>What's worse is that the smell stays on my hair. When I was going to
+(and returning from!) NUS yesterday for the proofreading, whenever there
+was a gust of wind I'd smell it and think "hey, there's a girl right
+behind me... oh wait, that's <strong>me</strong>". Of course, I'm way too cheap to
+throw out a bottle of S$3.60 (CDN$ 3.25 or so) shampoo just because it
+makes me smell like a girl.</p>
+<p>At the same time, I'm aware that this puts me me one circle closer to
+the center. Long, gorgeous, curly hair? Check. Putting said hair in a
+braid? Check. Having a flowery-smelling braid? ... check. That would put
+me with the gluttons, but I'd rather be on the sixth circle (heretics),
+so let's also count being a classical musician, liking cats, and
+enjoying teaching.</p>
+<p>Oh well. At least I'll have absolutely no problem becoming a member of
+the <a class="reference external" href="http://improbable.com/projects/hair/">Luxuriant Flowing Hair Club for
+Scientists</a>. It's run by the
+<a class="reference external" href="http://improbable.com/">Ig Nobel guys</a>, so it has to be highly
+regarded!</p>
+<p>I also did the dishes today in three batches. As you might have seen in
+the pictures of my apartment, my roommates leave everything in the
+drying area. As a general rule, I have nothing against this -- as long
+as there's enough room in the drying area to hold all the plates and
+cutlery. Sadly, there isn't enough room here... and besides, some of the
+"clean" stuff didn't seem very clean. So I put washed everything, dried
+it, put it away in cupboards, and then did another load.</p>
+<p>I actually enjoy housework. When I'm the mood, that is. I like making
+things clean, and I don't need to think about it. It's a nice break from
+programming, writing, proofreading, and all the normal stuff in my life.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2009-01-26-lunar-year.html" class="u-url">Happy Lunar New Year!</a></h2>
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2009-01-26-lunar-year.html" rel="bookmark"><time class="published dt-published" datetime="2009-01-26T20:32:00Z" title="2009-01-26 20:32">2009-01-26 20:32</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Happy Lunar New Year, everybody! Chinese New Year... or rather "lunar";
+I guess that political correctness has even reached this island... is a
+huge deal in Singapore.</p>
+<p>Almost all stores -- including food outlets -- are closed for two days.
+Oh wait; that's for the "spring festival", which are the two days after
+the LNY. Anyway, closed stores?! In Canada, everything's still open on
+Christmas day. Well, maybe not quite everything, but certainly
+supermarkets are. Not here! I had half a dozen warnings in the past week
+that I had to stock up on food because all the food courts and
+supermarkets would be closed.</p>
+<p>Let's go back and do this approximately chronologically.</p>
+<p>I cancelled the project meeting for my main project here. We were
+supposed to meet on Sat, but the professor had a paper deadline coming
+up a few days after that, and we weren't ready to give a demo. A week
+ago I'd promised that if we gave a demo there would be no technical
+problems, and I take that kind of thing.</p>
+<p>Aside: the phrase "curse of the demo" drives me crazy, especially in
+computer music. You'd think that performers would realize that a
+performance is a performance and that nobody wants to see somebody
+screwing around with computers -- well, nobody outside of some really
+wacky performance art funded by the National Arts Council -- so they'd
+make sure they had everything in order. But apparently not; things not
+working is quite accepted in this field. :( This becomes a
+self-fulfilling prophecy, of course -- everybody "knows" that the "curse
+of the demo" will make stuff fail in concert, so why bother putting in
+the effort to make sure that nothing fails?</p>
+<p>I'm not trying to claim that I'm perfect on this account. I've had stuff
+fail just before giving a seminar (I made some "trivial" changes to the
+code, went to lunch, then discovered that it wasn't working 10 minutes
+before the talk. Fortunately I was using svn and realized I could just
+revert to a previous version). I've had things suddenly fail just before
+showing them to my supervisor (I forget what I did then). But I never
+blamed magical gremlins -- computers don't work like that. That's why
+computers are awesome. Other than certain highly improbable hardware
+failing, all problems are caused by somebody screwing up. When something
+I created fails in a demo, I blame myself. Even if I didn't write the
+particular softare myself, I still failed to adequately test it.</p>
+<p>Anyway, during the first demo of our project, one of the group members
+"helpfully" wrote a <tt class="docutils literal">chuck.bat</tt> script (on windows) which had the
+command-line arguments we wanted. I'd written them down exactly on a
+piece of paper so that we wouldn't forget anything, but he thought we
+could avoid that problem by having a script.</p>
+<p>Except that he thought of this after we'd finished testing stuff. Now,
+what happens on windows when you have a <tt class="docutils literal">chuck.bat</tt> which attempts to
+run <tt class="docutils literal">chuck synth.ck server.ck</tt> ? Sure, there's a <tt class="docutils literal">chuck.exe</tt> in the
+path... but <tt class="docutils literal">chuck.bat</tt> responds to <tt class="docutils literal">chuck</tt>, so it goes into an
+infinite loop. I did not enjoy that demonstration. I was relatively nice
+to the guy who did it, though. I wanted to (metaphorically) rip his head
+off, but he's a first-year PhD student (which means "a first-year grad
+student" here, since everybody starts off doing a PhD) with no
+experience doing computer music, so I was merciful. If anything happens
+again I'll go berserk, though.</p>
+<p>I went shopping on Friday and Saturday evenings. I found more things in
+the supermarket, including ketchup and "cheese". I say "cheese" because
+the only type they appear to have is plastic processed cheese. You know,
+Kraft sliced cheese? This is an issue, since I normally eat cheese by
+the chunks (or grated and added to rice... but still a significant
+amount of it). Oh, and I haven't found any macaroni and cheese either.
+:(</p>
+<p>I also haven't found any fresh bread at the local supermarket. There's
+some sweet desert/breakfast rolls that come in plastic bags, but no real
+bread. My roommates agreed that bread was really hard to find in
+Singapore... but the next day they gave me a baguette! There's a bigger
+supermarket father away from our apartment, and while they were there
+they picked up an extra loaf for me.</p>
+<p>My "tourist" thing for this Sunday was going to a real Lunar New Year
+party. OK, that wasn't a "tourist" thing; this was an honest "graduate
+students celebrating the most important holiday of the year together"
+thing. Almost all of the students were Chinese, but there was one grad
+student from India there. He'd recently visited Vancouver (for ACM-MM
+2008), and when he heard that I was from there he exclaimed that it was
+"so, so beautiful... we are now friends for life!".</p>
+<p>This was also the first time I'd been to an HDB apartment. That's the
+public Housing Development Board apartments; something like 80% of the
+country lives in them. (BTW, my apartment is privately-run)</p>
+<p>The rooms were a bit smaller than mine, but bigger than I expected from
+looking at the apartment from the outside. There were about a dozen
+people there. The main dinner course was chinese dumplings, which were
+interesting to watch being made. There were about half a dozen people
+helping with that task... they offered to let me try, but since they
+were using chopsticks to put the filling in the pastry and I'm only up
+to 6 chopstick-usages in my life, I declined.</p>
+<p>Dumplings were the hardest thing to eat with chopsticks that I've tried
+so far. They were bigger and heavier than anything I've tried, and the
+outside was slippery. I persevered, though. I used a spoon briefly, but
+gradually got the hang of the chopsticks so ate them like that. They
+also made a vegetarian kind-of omletty thing for me. It was quite
+doughy, so maybe it was the dumpling pastry fried instead of boiled. It
+was also quite good.</p>
+<p>Games played were Uno (the Western kid's game) and a game called
+"Killer" and possibly one other game. I thought that this other game --
+based on the war of the Three Kingdoms, and in which the cards looked
+similar to Magic: the Gathering cards -- was called "Killer", but
+hearing one person's story of the game later made me question whether
+they were actually the same game or not. This other game looked more
+interesting than Uno, but it was all in Chinese and looked a lot more
+complicated.</p>
+<p>After dinner, the Indian guy and me started a game of charades. We
+noticed that there was less social cohesian than at Western parties --
+before we started the charades game, one person was surfing the web on
+the hostess' laptop, one person was watching TV, two people were
+tallking on cell phones outside, and the rest were playing Killer and/or
+the Three Kingdoms game. The Indian guy commented that in India,
+everybody does the same thing at a parties, so I commented that Canada
+was in between -- big parties still split into smaller groups, but never
+groups of 1, and any cell phone calls are kept short. Not that I'm a
+huge party-goer, of course. :)</p>
+<p>Today I went to university to proofread another paper for publication.
+The deadline is tomorrow, and they left the writing much too late. I
+spent a few hour correcting English mistakes -- yes, there were that any
+-- while one person kept writing the final sections. They (him and the
+professor) were very thankful about my help (they bought me lunch and
+gave me chocolate, some of which I'll share with my roommates in thanks
+for the bread), and they clearly needed aid with the writing. I don't
+begrudge them that. What I'm miffed about is that they left it so late.
+If you're writing in a language you don't know, you should be finished a
+week before the deadline!</p>
+<p>At the very least, the first half of the paper should have been finished
+weeks ago. I mean, the "related work" isn't going to change in the last
+month. And you did the literature search before starting the programming
+(right? right?? *cough* *cough*). Sure, writing that stuff sucks...
+but it has to be done sooner or later, so you might as well get it
+finished early. Especially, and I know that I stress this a lot, if
+you're not familiar with the language.</p>
+<p>I think I'll write the first two pages of my paper for next week. The
+deadline is April 17, but I want to set a good example. And show off, of
+course. :)</p>
+<p>I'm not going in tomorrow (it's still a public holiday, and my normal
+bus is still cancelled), and I've done my required tourist stuff, so I
+can finally spend a day in my bedroom. Don't laugh; all this
+"interacting with people" stuff takes a serious toll on an introvert
+like me. Even taking a bus or MRT is a chore -- I'm even luckier that I
+could bike to UVic than I realized at the time.</p>
+<p>Mao, I could <strong>really</strong> go for one of those quiet bike rides. In a light
+drizzle, 10 degrees centigrade, at 11pm at night. Absolutely no traffic
+in my area. With my battey-less front bike light, guided by moonlight.
+Or not. I was still fine on overcast nights with no moon.</p>
+<p>Mao, I guess this is homesickness. I managed to avoid it until now.
+Interesting that it's UVic that triggered it, rather than Vancouver.</p>
+<p>Anyway, I could really use a day to catch up on email, write another
+blog post with any remaining misc observations (I keep on writing stuff
+in a notebook, but I add the filled pages to my desk which is full of
+other stuff so they get lost), etc. Oh, and unpack. I still haven't
+unpacked. I want to be all caught up on stuff by the end of the month.</p>
+</div>
+    </div>
+    </article>
+</div>
+
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="../categories/bunnies-8.html" rel="prev">Newer posts</a>
+            </li>
+            <li class="next">
+                <a href="../categories/bunnies-6.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Tempo experiment analysis: the ugly | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://percival-music.ca/blog/2010-10-10-tempo-ugly.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Graham Percival">
+<link rel="prev" href="../blog/2010-10-09-tempo-bad.html" title="Tempo experiment analysis: the bad" type="text/html">
+<link rel="next" href="../blog/2010-10-14-magical-convolutoin.html" title="Convolution is magical!" type="text/html">
+<meta property="og:site_name" content="Living Without the Bunnies">
+<meta property="og:title" content="Tempo experiment analysis: the ugly">
+<meta property="og:url" content="http://percival-music.ca/blog/2010-10-10-tempo-ugly.html">
+<meta property="og:description" content="Previous posts discussed good and
+bad things about the tempo experiment.
+This one talks about the ugly stuff.
+The fundamental &quot;ugly&quot; thing is that I'm not finished the improved tempo
+detection algorit">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2010-10-10T01:23:00Z">
+<meta property="article:tag" content="bunnies">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h2 class="p-name entry-title" itemprop="headline name"><a href="../blog/2010-10-10-tempo-ugly.html" class="u-url">Tempo experiment analysis: the ugly</a></h2>
+
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2010-10-10-tempo-ugly.html" rel="bookmark"><time class="published dt-published" datetime="2010-10-10T01:23:00Z" itemprop="datePublished" title="2010-10-10 01:23">2010-10-10 01:23</time></a></p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Previous posts discussed <a class="reference external" href="../blog/2010-10-08-tempo-good.html">good</a> and
+<a class="reference external" href="../blog/2010-10-09-tempo-bad.html">bad</a> things about the tempo experiment.
+This one talks about the ugly stuff.</p>
+<p>The fundamental "ugly" thing is that I'm not finished the improved tempo
+detection algorithm; I had really thought it would be done by now. I
+started playing with preliminary data halfway through the experiment,
+and I really thought that I could get everything ready, and just make
+some final tweaks once I had the complete data.</p>
+<p>Two things interfered with this. First, our lab has been working on a
+simulation of a violin -- we have a set of equations (now in a series of
+C++ objects) which describe the motion of a violin (mainly the strings)
+when plucked or bowed. You can write a series of instructions (like "put
+a finger 0.206299 of the string-distance away from the nut (i.e. "a high
+second finger"), and bow on the D string with a force of 0.5 Newtons,
+with an upbow moving at 0.3 meters per seconds), and then the computer
+generates the resulting audio. I even added python bindings with SWIG!
+:) Very exciting, very fun... but sadly, very much not helping the tempo
+detection. :(</p>
+<p>The second problem is that I noticed patterns in the data (well,
+"noticed" is too strong a word -- you'd have to be blind not to see the
+almost-normality!). That prompted a huge review of statistics. I'd
+forgotten literally everything from the second-year STAT 270 course I
+took back in 1998. I knew there was something called a normal curve,
+which had a bulge in the middle... but I didn't remember that it was
+also called a Gaussian curve, or what variance was (other than
+"something to do with the range of data"). So I've had a merry romp
+through kurtosis, the KS-test, the Shapiro-Wilks test, <tt class="docutils literal">R</tt>,
+<tt class="docutils literal">fitdistr()</tt>, Q-Q plots, <tt class="docutils literal">scipy.stats</tt>, Cook's distance, the hat
+matrix, studentizing, etc. I worked in a combination of <tt class="docutils literal">R</tt>,
+<tt class="docutils literal">scipy</tt>, <tt class="docutils literal">gnuplot</tt>, and <tt class="docutils literal">matplotlib</tt>. I didn't actually use
+<tt class="docutils literal">Rpy</tt>, although I should have.</p>
+<p>But after going around in circles at least three times, I think I'm
+still back at where I started. I mean, yes, there is insufficient reason
+to reject a normal distribution for <em>most</em> of the taps-games... but for
+some games, an obviously good tempo produces residuals which can't
+reasonably be described as being from the normal distribution, while
+some other tap-games with an obviously bad tempo have tap-errors which
+appear to be quite normal. I think the whole statistical approach was a
+red herring. :(</p>
+<p>On the plus side, I now have some practical experience in analyzing
+experimental data. I kind-of wish I did this in lab courses in 1st and
+2nd year of my first degree... granted, philosophy doesn't tend to have
+many labs, but I spent a lot of my time taking courses outside my major
+anyway. I even did first-year physics and chemistry, but (regrettably) I
+only did the lecture courses, not the lab courses.</p>
+<p>Well, that's life in an highly interdisciplinary area like music
+technology. Or at least, that's life in a highly interdisciplinary area
+if nobody is around to collaborate... I mean, in this field, you either
+find experts in other fields to cover your weak spots, or you have to
+learn everything yourself. So far I've been doing everything myself,
+which is not particularly ideal. :| I guess that once I'm a professor,
+it'll help me supervise students in the more experimental side of music
+technology.</p>
+<p>Come to think of it, I had exactly the same problem with the violin
+equations -- I've never dealt with linear density or the second moment
+of area before, nor had I done any serious digital signal processing
+programming before. Simply doing things like correctly writing a
+mathematics equations into code like:</p>
+<blockquote>
+<pre class="literal-block">
+Y1[n-1] = -((w_n + r_n*r_n / w_n) * sin(w_n*dt)) * exp(-r_n*dt);
+</pre>
+</blockquote>
+<p>was a good, albeit time-consuming, experience. And dealing with all the
+off-by-one errors with math-indexing vs. C-array-indexing was fun...
+until I finally declared a standard and stuck with it. (I decided to
+start all <tt class="docutils literal">for</tt> loops with <tt class="docutils literal">n=1</tt>, but do all array indexing with
+<tt class="docutils literal"><span class="pre">[n-1]</span></tt>. Using <tt class="docutils literal">n</tt> as a loop counter seems wierd to my
+CS-background, but this is for nodal synthesis, and all the papers I was
+working from used "sum over all n", and keeping your code syntax as
+close to the math as possible definitely reduces the chance of silly
+errors!).</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Anyway, on to some pretty pictures. Although it would be nice to trust
+971 tap-games (the tap-games where the player either agreed with the
+tempo, or specified their own), I'm still going through these manually
+and double-checking them all. So far (567 tap-games examined) I've found
+7 tap-games where I don't believe the player's judgement. I'll be asking
+our local professor emeritus of music to look at those.</p>
+<p>So, some data from the doubly-agreed 560 tap-games.</p>
+<p><img alt="image0" src="http://percival-music.ca/blogfiles/residuals-easy.png" style="width: 100.0%;"></p>
+<p>Looks pretty normal, right? At least, it did to me. But none of the
+normality tests in <tt class="docutils literal">R</tt> and <tt class="docutils literal">scipy</tt> thought it had any reasonable
+chance of being normal, and upon closer examination I had to admit that
+the tails were a bit heavier than a normal curve.</p>
+<p>But we can still see some interesting things. For example, even this
+collection of the "most easily identified" tempi (i.e. the most accurate
+tap-games), there's still a significant amount of taps that are 100
+milliseconds away from the correct time. And remember that we're fitting
+the tempo to give the lowest possible errors -- if we had a set tempo,
+the errors would be worse. Granted, there aren't all <em>that</em> many taps
+that are 100 milliseconds away... but 50 milliseconds is certainly
+within reasonable bounds.</p>
+<p>On the question of "why not look at a set tempo" -- due to technical
+limitations in flash, this is not possible. Flash 10 (and below) can't
+generate a stable timer, so the visual metronome was created as an
+animated gif. The flash app doesn't actually know when the gif starts
+flashing, so unfortunately I can't make any guess about user-tap-times
+vs. metronome-times. I might try to duplicate portions of this
+experiment using a controlled setup in the lab to investigate that
+question.</p>
+<p>Oh, one thing that definitely is <em>not</em> interesting is that the residuals
+are evenly split between positive and negative ("have a skewness very
+close to 0" in stats terms). That comes from the linear regression. All
+the reasons against measuring these against a set tempo also apply to
+measuring them against a set offset (or "intercept" in stats-talk). Now,
+it would be really interesting to see the distribution of residuals...
+but again, that requires a controlled lab setup. And a controlled lab
+setup requires people to be physically present, probably with paid
+participants, etc.</p>
+<p>Hey, I just had a nice thought -- I could set up one of my old netbooks
+as a rhythm testing platform. It would have a reliable timer, etc. Then
+whenever I travel places, I take it along with me, and whenever I find a
+willing victim, I whip it out and they play with it. I'd need ethics
+approval for a long-term experiment (say, a year?), with me probably
+finding two or three participants each month... but if each person plays
+it for 15 minutes, that should give me enough data to see whether people
+tend to be ahead or behind the actual times.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Anyway, just looking at the residuals isn't enough. Maybe there were
+just a few tap-games that were wildly incorrect, and that's skewing the
+data. That's not the case here -- I mean, yes, there were some tap-games
+that looked pretty wild, but those aren't included in this current data
+set. But it's a reasonably question to ask, and easily answered by
+looking at the "average" amount of error. In particular, the standard
+deviation (also called "root-mean-squared-error").</p>
+<p><img alt="image1" src="http://percival-music.ca/blogfiles/rmse-easy.png" style="width: 100.0%;"></p>
+<p>So... it seems that 4 or 5 tap-games had an "average" error of less than
+10 milliseconds, but the vast majority of these tap-games had a RMSE
+between 15 and 60 milliseconds. That's interesting to note -- I wasn't
+expecting it to be so high, and most people I've mentioned it to have
+been surprised that there would be so much variation. But even that
+figure is a low estimate -- I expect the actual range to be much higher
+once I include the entire dataset.</p>
+<p>This is good to know for anybody working on rhythm grading -- if this
+experiment is an accurate representation of your target group, then you
+should expect the best people to have an RMSE between 15 and 25 ms. It's
+interesting to note that 15-25ms is the just noticeable difference of
+two sharp onsets. If you record a clap (or any abrupt sound), make a
+copy, and play the delayed copy 15 ms later than the first, most people
+will only hear one clap. If you play it 25 ms later, most people will
+hear two claps. I doubt that there's actually a connection between these
+two things, but it's interesting to note anyway. :)</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Anyway, that's what I have so far. I'm going to force myself to take a
+break for a day or two, then tackle it again with a fresh outlook.
+Hopefully I'll be finished the improved algorithm next week, so that I
+can move on to the rhythm grading experiment! (and write this one up for
+publication, of course)</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/bunnies.html" rel="tag">bunnies</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../blog/2010-10-09-tempo-bad.html" rel="prev" title="Tempo experiment analysis: the bad">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../blog/2010-10-14-magical-convolutoin.html" rel="next" title="Convolution is magical!">Next post</a>
+            </li>
+        </ul></nav></aside></article></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

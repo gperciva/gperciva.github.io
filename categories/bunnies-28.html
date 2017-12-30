@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Posts about bunnies (old posts, page 28) | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS for tag bunnies (en)" href="../categories/bunnies.xml">
+<link rel="canonical" href="http://percival-music.ca/categories/bunnies-28.html">
+<link rel="prev" href="../categories/bunnies-29.html" type="text/html">
+<link rel="next" href="../categories/bunnies-27.html" type="text/html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><link rel="alternate" type="application/rss+xml" title="RSS for tag bunnies (en)" href="../categories/bunnies.xml">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><header><h1>Posts about bunnies (old posts, page 28)</h1>
+    </header><div class="postindex">
+    <article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2010-11-21-artifastring-10.html" class="u-url">Artifastring 1.0</a></h2>
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2010-11-21-artifastring-10.html" rel="bookmark"><time class="published dt-published" datetime="2010-11-21T00:03:00Z" title="2010-11-21 00:03">2010-11-21 00:03</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>I'm happy to announce the release of Artifastring 1.0, a highly
+optimized physical simulation of a violin for sound synthesis.
+<a class="reference external" href="http://percival-music.ca/artifastring/">http://percival-music.ca/artifastring/</a></p>
+<p>This is an implementation of modal bowed string physical modeling as
+described by Matthias Demoucron; references are given on the project's
+main page. The code is available under the GPL v3 or higher.</p>
+<p>I had a blast optimising this stuff -- actually, I had far <em>too much</em>
+fun working on tiny speed improvements. Surprisingly, making the code
+multithreaded didn't help; the extra overhead of the mutex and condition
+variables nuked the benefit of modeling each violin string separately
+for any realistic length of discretized input.</p>
+<p>I won't get into everything I did, but here's the main four points:</p>
+<ul>
+<li>
+<p class="first">As suggested in a conference paper, if a violin string wasn't
+vibrating and had no input, I didn't bother calculating new values
+for it -- I just returned 0.0. (this model doesn't include
+sympathetic vibrations, so there was absolutely no change in the
+output from doing this).
+I also detected if the string was barely vibrating (i.e. producing a
+force of less than 1e-6 on the bridge and each modal velocity was
+below 1e-4), and then "turned off" that string. This step <em>did</em>
+change the output, but only very slightly. I picked those values
+experimentally -- I plucked the string, then looked for the time when
+I really couldn't hear the sound any more. Admittedly, I was using a
+pair of £10 headphones... if I had a more expensive sound setup
+(whether headphones, speakers, a larger room, room with less
+background noise, etc), these values might be too low. If that were
+the case, it's easy enough to change those constants.</p>
+</li>
+<li>
+<p class="first">Caching any values more complicated than addition or multiplication.
+In particular, the results of any trig functions were cached -- the
+amount of extra memory required is trivial (something like 20 kb ?).</p>
+</li>
+<li>
+<p class="first">The code calculates eigenvectors of the string for each mode. This is
+a series of calculatations in the form</p>
+<blockquote>
+<pre class="literal-block">
+y_i = sin(x*i)   , i = 0, 1, 2... N (where N=56 in my case)
+</pre>
+</blockquote>
+<p>There's a <a class="reference external" href="http://groovit.disjunkt.com/analog/time-domain/fasttrig.html">well-known
+optimization</a>
+for this: to calculate y_n = sin(nW+B), use y_n =
+2*cos(W)*y_(n-1) - y(n-2).</p>
+<p>I could improve on that, though. In my case, there's no B, and I know
+that sin(0) = 0. So I only need to calculate sin(-W) and cos(W).</p>
+<p>But wait, it gets better! The quoted webpage includes this code:</p>
+<blockquote>
+<pre class="literal-block">
+double y[3];
+double keep[N];
+for (int i=0; i&lt;N; i++) {
+    y[2] = p*y[1] - y[0];
+    keep[i] = sqrt_two_div_l * y[2];
+    y[0] = y[1];
+    y[1] = y[2];
+}
+</pre>
+</blockquote>
+<p>but this involves unnecessary copying. We can avoid that by using a
+ring buffer of size 2:</p>
+<blockquote>
+<pre class="literal-block">
+double y[2];
+double keep[N];
+unsigned int latest = 0;
+for (int i=0; i&lt;N; i++) {
+    y[latest] = p*y[!latest] - y[latest];
+    keep[i] = sqrt_two_div_l * y[latest];
+    latest = !latest;
+}
+</pre>
+</blockquote>
+<p>hmm... it just occurred to me that I could avoid using y if I
+postponed the multiplication by sqrt_two_div_l until after I'd
+finished calculating the entire array. I mean, go through the array
+once calculating the sin() values, then go through again multiplying
+everything by sqrt_two_div_l. I could also get rid of the "latest"
+variable, and just use i. Hmm... :)</p>
+</li>
+<li>
+<p class="first">Fast ring buffer pointer calculation: the traditional way is to use
+modulo:</p>
+<blockquote>
+<pre class="literal-block">
+i = (i++) % BUFFER_SIZE;
+</pre>
+</blockquote>
+<p>But modulo is division -- it's <em>slow</em>. Another way is to use a
+comparison:</p>
+<blockquote>
+<pre class="literal-block">
+i++;
+if (i == BUFFER_SIZE) {
+    i = 0;
+}
+</pre>
+</blockquote>
+<p>That's better, but still uses a bunch of CPU cycles. To improve it
+even more (courtesy of my brother), if you always use a buffer size
+which is a power of 2, you can just use an AND!</p>
+<blockquote>
+<pre class="literal-block">
+i++;
+i &amp;= BUFFER_SIZE_MINUS_ONE;
+</pre>
+</blockquote>
+<p>Of course, we've defined BUFFER_SIZE and BUFFER_SIZE_MINUS_ONE at
+compile-time.</p>
+</li>
+</ul>
+<p>Sadly, none of this optimization is actually useful. Ok, the "inactive
+string" trick cut the processing time by more than half -- but the other
+tricks only gave 2-5% improvements in speed. One of the first lessons
+for people doing computer science is that running time doesn't matter.
+The real improvements are made at the level of algorithms... if you can
+do O(ln(n)) less operations than the next person, then it doesn't matter
+if you wrote your code in perl and he used hand-crafted assembly. Your
+code is guaranteed to be faster for any sufficiently large problem.</p>
+<div class="line-block">
+<div class="line">... of course, in the grand scheme of "doing stupid things," spending
+3 days obsessing about speed and making your code run 20% faster is
+hardly a terrible thing. I mean, the next stage of the project is
+using the physical model to play music; that will involve a *lot* of
+experiments, and the faster the code runs, the more comfortable those
+experiments will be.</div>
+<div class="line">Anyway, there's the code. I don't have any fancy examples yet; I'm
+still learning how to "play" this virtual instrument. I should have
+neat stuff in a month or two.</div>
+</div>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2010-11-20-firelily.html" class="u-url">Firelily</a></h2>
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2010-11-20-firelily.html" rel="bookmark"><time class="published dt-published" datetime="2010-11-20T23:49:00Z" title="2010-11-20 23:49">2010-11-20 23:49</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>A long time ago in a city far, far away... I wrote a server in perl
+which transformed OSC messages into png's of sheet music.</p>
+<p>This was back when I was doing my second Bachelor's degree; this time a
+B.Mus. It was my final project for the 4th-year computer music seminar
+at the University of Victoria, Canada. It wasn't a new idea, even back
+in 2006. But few people had done this kind of thing, and in any case,
+this was just one course in a bachelor degree. I got my 'A', finished
+the degree, and moved on.</p>
+<p>However, I'd mentioned the program on the lilypond-user mailing list,
+and some people were interested. So interested that one of them recently
+emailed me to ask if my program was available -- I'd previously given
+him a "don't redistribute this" tarball a few years ago, with the
+understanding that I was still working on the infrastructure and was
+embarrassed about some of it.</p>
+<div class="line-block">
+<div class="line">Well, it's now clear that I'm never going to go back and "clean up"
+that work. I'm not saying that I'll never return to interactive sheet
+music -- I think it's an awesome idea -- but if/when I were to return
+to it, I'd want to start from scratch, almost certainly use python,
+etc.</div>
+</div>
+<p>Still, that's no reason to hold my earlier work hostage. So I'm
+announcing the release of Firelily 0.3.</p>
+<blockquote>
+<p>This is old code which I wrote during my second degree (B.Mus). It
+does not represent my current ability level, with regards to
+programming ability, project organization, compositional techniques,
+or anything else.</p>
+<p>My research interests have shifted; I now consider this project
+abandoned.</p>
+<p>I'm happy to make it available under the BSD license. I'm not
+certain that it would be of any use to anybody, but I've had one
+such request, so here you go! If you would prefer it under a
+different license (GPL, Apache, artistic, whatever), then just ask
+and I'll (almost certainly) license it to you under that other
+license. <a class="reference external" href="http://percival-music.ca/software/firelily-0.3.tar.gz">http://percival-music.ca/software/firelily-0.3.tar.gz</a></p>
+</blockquote>
+<p><a class="reference external" href="http://www.jamiebullock.com">Jamie Bullock</a> has expressed an
+interest in maintaining and improving Firelily, so if anybody stumbles
+across this blog post in a few months/years, go look there. :)</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2010-10-14-magical-convolutoin.html" class="u-url">Convolution is magical!</a></h2>
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2010-10-14-magical-convolutoin.html" rel="bookmark"><time class="published dt-published" datetime="2010-10-14T02:01:00Z" title="2010-10-14 02:01">2010-10-14 02:01</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Digital Signal Processing can be so awesome it's scary. That's true of
+any branch of mathematics, of course... but since I just reached this
+point with convolution to aid the violin physical model, that's what
+I'll talk about. With audio examples!</p>
+<p>We've been working on a program that simulates a violin (called a
+"physical model" in this the jargon, but it's not physical, and only
+scientists use the word "model" in that fashion). We have a series of
+equations that describe how the violin reacts when you pluck it, bow it,
+put finger(s) on string(s), etc. We're using a lot of approximations and
+known-to-be-inaccurate physics in this program; we're not trying to push
+the boundaries of science in this area. We just want something that
+behaves (and thus sounds) vaguely like a violin, so that people can hear
+the difference that various bowings make.</p>
+<p>In more precise terms, we give the computer a series of instructions
+about the physical actions of a violinist, and the computer does them.
+For example:</p>
+<blockquote>
+<pre class="literal-block">
+time  action  extra
+0.0   finger  D string  from-nut 0.109
+0.0   bow     D string  from-bridge 0.12  -0.1 m/s  0.4 N
+</pre>
+</blockquote>
+<p>This starts playing an E on the D string with a slow upbow (0.1 meters
+per second) with moderate pressure (0.4 Newtons).</p>
+<p>After summing the forces that the four violin strings exert onto the
+bridge, we get the following sound:</p>
+<blockquote>
+<a class="reference external" href="http://percival-music.ca/blogfiles/twinkle-plain.wav.mp3">twinkle-plain.wav.mp3</a>
+</blockquote>
+<p>Why does this sound so bad? Well, the approximations we're making will
+hurt the sound quality to some extent, but the biggest reason is that
+I'm not doing anything fancy in terms of the playing (yet). I mean, even
+the most accurate physical simulation can produce horrible noises. Don't
+believe me? Give a violin to my father. A <em>real</em> violin is the most
+accurate physical "simulation" imagineable, but it won't produce nice
+sound unless it's played by a skilled violinist!</p>
+<p>But I digress. Right now I'm excited about convolution of audio with an
+impulse response.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>One neat trick I learned while doing my music degree at UVic was that
+you can make audio sound like it's played in a room by taking it's
+convolution with the impulse response of a room. Want to pretend that
+you're singing karaoke in the Sistine Chapel, or the Met opera hall? All
+you need to do is go to those places and record a clap. That's it -- a
+single clap ("an impulse") is enough to make <em>any</em> piece of audio sound
+like it was played in that environment.</p>
+<p>When I heard that, I was like "woah!" [sic -- I'm trying to write like a
+UVic music undergraduate].</p>
+<p>But it didn't really sink in, because I hadn't actually tried doing it
+myself. Like so many parts of mathematics, it doens't make sense until
+you do it yourself. (which makes this whole blog post rather pointless,
+of course)</p>
+<p>The <em>really</em> cool thing, though, is that this applies to small things,
+not just big rooms. In particular, it applies to the violin body.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>So my supervisor and I went down to the basement, wandered past all the
+liquid nitrogen (or whatever was in those tanks) and hopped in the
+anechoic chamber. After plugging in my supervisor's eee 901 netbook into
+the microphone that somebody left in the room, I hit the violin a few
+times with a dirty tea-spoon that we grabbed from our lounge.</p>
+<p>Yeah. In the Centre for Music Technology, we're just <em>that</em> hardcore. A
+week ago previous, we ended up measuring the weight of the violin bow
+using a flat piece of metal (the leg of a speaker stand) as a lever, a
+ball-point pen as fulcrum, and a slightly-drank pint of milk as the
+counter-balance to the bow.</p>
+<p>We went back upstairs, isolated one of those taps, and filtered it at 80
+Hz to get rid of some background noise. (hey, there's noise everywhere,
+even in an anechoic chamber!)</p>
+<p>Here's the resulting sound:</p>
+<blockquote>
+<a class="reference external" href="http://percival-music.ca/blogfiles/impulse-2048.wav">impulse-2048</a>
+</blockquote>
+<p>If you think you missed something, nope -- that tiny click is all there
+is. It's 2048 samples long (slightly longer than 46 millisceonds), and
+that's actually way longer than it needs to be. Now we just need to
+convolve those two pieces of audio together.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>The C code that does the magical convolution was simplicity in itself:</p>
+<blockquote>
+<pre class="literal-block">
+double ViolinInstrument::body_impulse(double sample)
+{
+    body_ringbuffer[body_write_index] = sample;
+    double result = 0.0;
+    unsigned int bi=body_read_index;
+    for (unsigned int ki=0; ki &lt; PC_KERNEL_SIZE; ki++) {
+        result += body_ringbuffer[bi] * pc_kernel[ki];
+        bi++;
+        if (bi &gt;= PC_KERNEL_SIZE) {
+            bi -= PC_KERNEL_SIZE;
+        }
+    }
+    update_body_pointers();
+    return result;
+}
+</pre>
+</blockquote>
+<p>... ok, it you're not a programmer, that probably doesn't look simple.
+The only important thing to note is that we're multiplying two numbers
+together, then repeating that process, and adding up all the results
+together. And also note that the two numbers we're multiply together are
+simply the raw samples.</p>
+<p>(if you know the math and you're worried about the reverse+shift...
+don't be! That's done by the physics. The second function isn't actually
+the recorded "bonk" noise; the "bonk" noise itself is already the
+reverse+shifted version of the function)</p>
+<p>The end result of the multiple+add is this:</p>
+<blockquote>
+<a class="reference external" href="http://percival-music.ca/blogfiles/twinkle-convolution.wav.mp3">twinkle-convolution.wav.mp3</a>
+</blockquote>
+<p>Sounds much more like a violin, right? I think the mic placement wasn't
+ideal, and it was a really cheap violin, but we can make more records
+later with other violins. The important thing is that the basic system
+is working... and that multiplying a simple tea-spoon-bonk can magically
+change the sound in this way.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Oh, and I absolutely cannot resist adding a link to my favorite (and
+sadly no longer updated) web-comic, talking about convolution: <a class="reference external" href="http://ansuz.sooke.bc.ca/bonobo-conspiracy/?i=381">a
+magical
+superpower</a>. (the
+clown is the supervisor -- this will be obvious to anybody in academia)</p>
+</div>
+    </div>
+    </article>
+</div>
+
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="../categories/bunnies-29.html" rel="prev">Newer posts</a>
+            </li>
+            <li class="next">
+                <a href="../categories/bunnies-27.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

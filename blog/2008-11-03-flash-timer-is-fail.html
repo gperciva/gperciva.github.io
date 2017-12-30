@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Flash timing code is fail | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://percival-music.ca/blog/2008-11-03-flash-timer-is-fail.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Graham Percival">
+<link rel="prev" href="../blog/2008-11-02-mewer.html" title="MEWER" type="text/html">
+<link rel="next" href="../blog/2008-11-04-mewer-03.html" title="MEWER 0.3" type="text/html">
+<meta property="og:site_name" content="Living Without the Bunnies">
+<meta property="og:title" content="Flash timing code is fail">
+<meta property="og:url" content="http://percival-music.ca/blog/2008-11-03-flash-timer-is-fail.html">
+<meta property="og:description" content="Yesterday's test was a great success -- in that the test discovered a
+huge flaw in the program. Or rather, it found a huge flaw in the
+platform: the Timer object in Flash is horribly inaccurate.
+I'm n">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2008-11-03T09:06:00Z">
+<meta property="article:tag" content="work">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h2 class="p-name entry-title" itemprop="headline name"><a href="../blog/2008-11-03-flash-timer-is-fail.html" class="u-url">Flash timing code is fail</a></h2>
+
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2008-11-03-flash-timer-is-fail.html" rel="bookmark"><time class="published dt-published" datetime="2008-11-03T09:06:00Z" itemprop="datePublished" title="2008-11-03 09:06">2008-11-03 09:06</time></a></p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Yesterday's test was a great success -- in that the test discovered a
+huge flaw in the program. Or rather, it found a huge flaw in the
+platform: the <tt class="docutils literal">Timer</tt> object in Flash is horribly inaccurate.</p>
+<p>I'm not a complete idiot -- I did some initial tests with flash before
+spending ten hours writing that public test. Specifically, I ensured
+that the clap-detection functionality was accurate enough. It wasn't
+perfect (my physical metronome varied by 5 ms... although to be fair to
+flash, it's possible that the metronome itself was varying), but it was
+good enough.</p>
+<p>However, I didn't test that flash could make a light blink to within 5
+ms. In retrospect, I should have. But it never occurred to me that it
+would be a problem.</p>
+<p>(and yes, it took almost all my willpower to avoid using "flash" as a
+verb in the previous paragraph)</p>
+<p>You can test it for yourself on your own computer: <a class="reference external" href="http://percival-music.ca/software/metrotest/index.html">Metronome
+test</a></p>
+<p>On my system, a modest dual-2.0 Ghz macbook running OSX 10.4.11, half
+the time I get a maximum delay of about 40ms, and half the time it
+spikes up to over 200ms. That's totally unacceptable for a metronome --
+especially when I'm going to be grading students on their clapping
+ability. The whole point of this program, and my Master's thesis in
+general, is that computers can provide objective, accurate, and above
+all, trust-worth grading. If students can't trust that the computer
+grades are accurate (at least to 5%), the program will be a pathetic toy
+rather than an educational aid. And we have more than enough pathetic
+toys masquerading as educational tools (or "edutainment").</p>
+<p>Note that the above test is <strong>only</strong> timing the <tt class="docutils literal">Timer</tt> class. I'm not
+doing anything else here -- adding other stuff (like listening to claps
++ key presses, drawing flashing lights, etc) can only make it worse.</p>
+<p>So what now? I can think of one last thing to try: display the metronome
+as an animated gif on the web page. Haxe can pass information
+("remoting") to other programs. So the flash game will tell a javascript
+program to display an animated gif (or svg/mng, if Internet Exporer has
+finally caught up 1999/2001) on the HTML page.</p>
+<p>Yeah, that's quite a bit of duct tape, even for me. But what's the
+alternative? Abandon 90% of potential MEAWS users by ignoring Windows?
+Spending a week setting up a development environment on windows so that
+I can compile it? Neither of those options are particularly appealing.
+:(</p>
+<p>Anyway, thank you to everybody who tried the past version. I'll
+hopefully have this duct-tape flash+javascript+gif stuff ready for
+testing within 24 hours.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/work.html" rel="tag">work</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../blog/2008-11-02-mewer.html" rel="prev" title="MEWER">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../blog/2008-11-04-mewer-03.html" rel="next" title="MEWER 0.3">Next post</a>
+            </li>
+        </ul></nav></aside></article></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

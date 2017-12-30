@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Questions Answered 2 | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://percival-music.ca/blog/2009-01-27-questions-2.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Graham Percival">
+<link rel="prev" href="../blog/2009-01-27-getting-in-touch.html" title="Getting in touch with my feminine side" type="text/html">
+<link rel="next" href="../blog/2009-02-04-going-native.html" title="Going Native" type="text/html">
+<meta property="og:site_name" content="Living Without the Bunnies">
+<meta property="og:title" content="Questions Answered 2">
+<meta property="og:url" content="http://percival-music.ca/blog/2009-01-27-questions-2.html">
+<meta property="og:description" content="More answers to emailed questions.
+Yes, I've definitely been getting work down. The jianqu version of MEWER
+is almost complete -- I reached the point where I know how to do all of
+the iphone interface">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2009-01-27T22:15:00Z">
+<meta property="article:tag" content="bunnies">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h2 class="p-name entry-title" itemprop="headline name"><a href="../blog/2009-01-27-questions-2.html" class="u-url">Questions Answered 2</a></h2>
+
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2009-01-27-questions-2.html" rel="bookmark"><time class="published dt-published" datetime="2009-01-27T22:15:00Z" itemprop="datePublished" title="2009-01-27 22:15">2009-01-27 22:15</time></a></p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>More answers to emailed questions.</p>
+<p>Yes, I've definitely been getting work down. The jianqu version of MEWER
+is almost complete -- I reached the point where I know how to do all of
+the iphone interface stuff I need, so it's time to rewrite my project
+with proper software engineering practices, instead of throwing
+everything together.</p>
+<p>On Friday, we were finally able to purchase the iphone developer
+license. It took Apple a full week to fix their Apple Store so that we
+could purchase it from Singapore. I could buy the license by ssh'ing
+into a computer at UVic that I still had access to and using lynx.
+Text-based SSL-encrypted web-browsing for teh win! But I didn't want to
+buy the license myself, since I'm leaving this group in four months.
+It's more useful if one of the PhD students here buys it.</p>
+<p>Anyway, that prompted a flurry of activity on Saturday when we could
+actually begin testing. I immediately tried to do a trill -- none of the
+other people thought to try this, but it was obvious to me as a musician
+that this was the best way to test the overall system -- and was
+disgusted at the results. But after half an hour (with corrections to
+both the client and the server) we had it working quite well.</p>
+<p>As a side note, I'm not impressed with MVC (model-controller-view). I
+definitely see the point in separating the logic from the interface, but
+I just can't see a separate Controller as being truly useful. I mean,
+how many people really use multiple interfaces for exactly the same
+code? I've written the rhythm game three times now, and each time I've
+had to use a different language (1. Qt - C++ (or java or python with
+bindings) 2. haXe (to create flash or javascript) 3. objective C (for
+iphone)).</p>
+<div class="line-block">
+<div class="line">I'm even less impressed with Objective C. "Hey, let's take a language
+with well-known syntax relying on () for functions, and add syntax
+which relies on [] for functions in objects!" Seriously, you have code
+like this:</div>
+</div>
+<blockquote>
+<pre class="literal-block">
+for (int i = 0; i &lt; exerciseString.length; i++) {
+  int c = [exerciseString charAtIndex:i];
+  if (c==49) {
+    [arrayExerciseOnsets addObject:[NSNumber valueFromInt:1]];
+    int x = (480 - xOffsetR - xOffsetL) / exerciseString.length;
+    CGDrawRectangle (ctx, x, 0, 2, 50);
+  }
+}
+</pre>
+</blockquote>
+<div class="line-block">
+<div class="line"><br></div>
+<div class="line">Yuck! Ok, my use of a "magic number" is bad, but '1' doesn't work due
+to the magic of UTF-8 string handling. Specifying the ASCII value
+*does* work. Also, I'm mixing Model and View stuff here -- I'm not
+actually doing this in my program; I artificially dumped them together
+so you could see the wonders of [objective C] with pure C
+object-oriented code... all directly from the Apple docs. I mean, the
+Objective-C [object method:parameter] syntax is silly enough, but when
+they encourage you to use CoreGraphics with the pure C-style
+<tt class="docutils literal">CGFooBar( pointer_to_drawing_context, my, real, parameters);</tt> ...
+I'm left shaking my head in disbelief.</div>
+</div>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Back to normal life! The most complicated meal I've made so far is
+tuna-fish melt. Sliced bread, tuna, and a slice of processed cheese,
+into a microwave for 30 seconds, and then adding ketchup. If I could
+find macaroni and cheese here, or if the street food wasn't so cheap,
+I'd do more cooking. But there really isn't any point in it -- if all
+the stores weren't closed for the LNY, I wouldn't have even bothered
+with the tuna-fish.</p>
+<p>Singapore TV seems to be sit-com-like dramas. I saw a TV schedule by
+reading a magazine over the shoulder of somebody in the MRT once, and it
+listed Battle Star Galactica as being on at 11pm, but I didn't stay
+awake to check. There's 8 or 9 channels, and every time I've tried to
+look for something all the shows have been news or been Asian dramas
+(mostly in Chinese (or maybe Malay?), occasionally in Indian (or maybe
+Indonesian?)). They have subtitles -- often in two languages, so I could
+follow along if I wanted to. Oh wait; once I saw that BBC comedy with
+the mute comedian. Mr. Bean? It was on air about 10-15 years ago.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/bunnies.html" rel="tag">bunnies</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../blog/2009-01-27-getting-in-touch.html" rel="prev" title="Getting in touch with my feminine side">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../blog/2009-02-04-going-native.html" rel="next" title="Going Native">Next post</a>
+            </li>
+        </ul></nav></aside></article></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

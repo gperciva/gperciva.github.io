@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Convolution is magical! | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://percival-music.ca/blog/2010-10-14-magical-convolutoin.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Graham Percival">
+<link rel="prev" href="../blog/2010-10-10-tempo-ugly.html" title="Tempo experiment analysis: the ugly" type="text/html">
+<link rel="next" href="../blog/2010-11-20-firelily.html" title="Firelily" type="text/html">
+<meta property="og:site_name" content="Living Without the Bunnies">
+<meta property="og:title" content="Convolution is magical!">
+<meta property="og:url" content="http://percival-music.ca/blog/2010-10-14-magical-convolutoin.html">
+<meta property="og:description" content="Digital Signal Processing can be so awesome it's scary. That's true of
+any branch of mathematics, of course... but since I just reached this
+point with convolution to aid the violin physical model, th">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2010-10-14T02:01:00Z">
+<meta property="article:tag" content="bunnies">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h2 class="p-name entry-title" itemprop="headline name"><a href="../blog/2010-10-14-magical-convolutoin.html" class="u-url">Convolution is magical!</a></h2>
+
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2010-10-14-magical-convolutoin.html" rel="bookmark"><time class="published dt-published" datetime="2010-10-14T02:01:00Z" itemprop="datePublished" title="2010-10-14 02:01">2010-10-14 02:01</time></a></p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Digital Signal Processing can be so awesome it's scary. That's true of
+any branch of mathematics, of course... but since I just reached this
+point with convolution to aid the violin physical model, that's what
+I'll talk about. With audio examples!</p>
+<p>We've been working on a program that simulates a violin (called a
+"physical model" in this the jargon, but it's not physical, and only
+scientists use the word "model" in that fashion). We have a series of
+equations that describe how the violin reacts when you pluck it, bow it,
+put finger(s) on string(s), etc. We're using a lot of approximations and
+known-to-be-inaccurate physics in this program; we're not trying to push
+the boundaries of science in this area. We just want something that
+behaves (and thus sounds) vaguely like a violin, so that people can hear
+the difference that various bowings make.</p>
+<p>In more precise terms, we give the computer a series of instructions
+about the physical actions of a violinist, and the computer does them.
+For example:</p>
+<blockquote>
+<pre class="literal-block">
+time  action  extra
+0.0   finger  D string  from-nut 0.109
+0.0   bow     D string  from-bridge 0.12  -0.1 m/s  0.4 N
+</pre>
+</blockquote>
+<p>This starts playing an E on the D string with a slow upbow (0.1 meters
+per second) with moderate pressure (0.4 Newtons).</p>
+<p>After summing the forces that the four violin strings exert onto the
+bridge, we get the following sound:</p>
+<blockquote>
+<a class="reference external" href="http://percival-music.ca/blogfiles/twinkle-plain.wav.mp3">twinkle-plain.wav.mp3</a>
+</blockquote>
+<p>Why does this sound so bad? Well, the approximations we're making will
+hurt the sound quality to some extent, but the biggest reason is that
+I'm not doing anything fancy in terms of the playing (yet). I mean, even
+the most accurate physical simulation can produce horrible noises. Don't
+believe me? Give a violin to my father. A <em>real</em> violin is the most
+accurate physical "simulation" imagineable, but it won't produce nice
+sound unless it's played by a skilled violinist!</p>
+<p>But I digress. Right now I'm excited about convolution of audio with an
+impulse response.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>One neat trick I learned while doing my music degree at UVic was that
+you can make audio sound like it's played in a room by taking it's
+convolution with the impulse response of a room. Want to pretend that
+you're singing karaoke in the Sistine Chapel, or the Met opera hall? All
+you need to do is go to those places and record a clap. That's it -- a
+single clap ("an impulse") is enough to make <em>any</em> piece of audio sound
+like it was played in that environment.</p>
+<p>When I heard that, I was like "woah!" [sic -- I'm trying to write like a
+UVic music undergraduate].</p>
+<p>But it didn't really sink in, because I hadn't actually tried doing it
+myself. Like so many parts of mathematics, it doens't make sense until
+you do it yourself. (which makes this whole blog post rather pointless,
+of course)</p>
+<p>The <em>really</em> cool thing, though, is that this applies to small things,
+not just big rooms. In particular, it applies to the violin body.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>So my supervisor and I went down to the basement, wandered past all the
+liquid nitrogen (or whatever was in those tanks) and hopped in the
+anechoic chamber. After plugging in my supervisor's eee 901 netbook into
+the microphone that somebody left in the room, I hit the violin a few
+times with a dirty tea-spoon that we grabbed from our lounge.</p>
+<p>Yeah. In the Centre for Music Technology, we're just <em>that</em> hardcore. A
+week ago previous, we ended up measuring the weight of the violin bow
+using a flat piece of metal (the leg of a speaker stand) as a lever, a
+ball-point pen as fulcrum, and a slightly-drank pint of milk as the
+counter-balance to the bow.</p>
+<p>We went back upstairs, isolated one of those taps, and filtered it at 80
+Hz to get rid of some background noise. (hey, there's noise everywhere,
+even in an anechoic chamber!)</p>
+<p>Here's the resulting sound:</p>
+<blockquote>
+<a class="reference external" href="http://percival-music.ca/blogfiles/impulse-2048.wav">impulse-2048</a>
+</blockquote>
+<p>If you think you missed something, nope -- that tiny click is all there
+is. It's 2048 samples long (slightly longer than 46 millisceonds), and
+that's actually way longer than it needs to be. Now we just need to
+convolve those two pieces of audio together.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>The C code that does the magical convolution was simplicity in itself:</p>
+<blockquote>
+<pre class="literal-block">
+double ViolinInstrument::body_impulse(double sample)
+{
+    body_ringbuffer[body_write_index] = sample;
+    double result = 0.0;
+    unsigned int bi=body_read_index;
+    for (unsigned int ki=0; ki &lt; PC_KERNEL_SIZE; ki++) {
+        result += body_ringbuffer[bi] * pc_kernel[ki];
+        bi++;
+        if (bi &gt;= PC_KERNEL_SIZE) {
+            bi -= PC_KERNEL_SIZE;
+        }
+    }
+    update_body_pointers();
+    return result;
+}
+</pre>
+</blockquote>
+<p>... ok, it you're not a programmer, that probably doesn't look simple.
+The only important thing to note is that we're multiplying two numbers
+together, then repeating that process, and adding up all the results
+together. And also note that the two numbers we're multiply together are
+simply the raw samples.</p>
+<p>(if you know the math and you're worried about the reverse+shift...
+don't be! That's done by the physics. The second function isn't actually
+the recorded "bonk" noise; the "bonk" noise itself is already the
+reverse+shifted version of the function)</p>
+<p>The end result of the multiple+add is this:</p>
+<blockquote>
+<a class="reference external" href="http://percival-music.ca/blogfiles/twinkle-convolution.wav.mp3">twinkle-convolution.wav.mp3</a>
+</blockquote>
+<p>Sounds much more like a violin, right? I think the mic placement wasn't
+ideal, and it was a really cheap violin, but we can make more records
+later with other violins. The important thing is that the basic system
+is working... and that multiplying a simple tea-spoon-bonk can magically
+change the sound in this way.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Oh, and I absolutely cannot resist adding a link to my favorite (and
+sadly no longer updated) web-comic, talking about convolution: <a class="reference external" href="http://ansuz.sooke.bc.ca/bonobo-conspiracy/?i=381">a
+magical
+superpower</a>. (the
+clown is the supervisor -- this will be obvious to anybody in academia)</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/bunnies.html" rel="tag">bunnies</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../blog/2010-10-10-tempo-ugly.html" rel="prev" title="Tempo experiment analysis: the ugly">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../blog/2010-11-20-firelily.html" rel="next" title="Firelily">Next post</a>
+            </li>
+        </ul></nav></aside></article></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

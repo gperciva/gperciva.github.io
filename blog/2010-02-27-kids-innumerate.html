@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>My kids are innumerate | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://percival-music.ca/blog/2010-02-27-kids-innumerate.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Graham Percival">
+<link rel="prev" href="../blog/2010-02-18-back-life.html" title="Back to normal life" type="text/html">
+<link rel="next" href="../blog/2010-05-06-turnitin-drinking.html" title='Turn "turnitin" into a drinking game' type="text/html">
+<meta property="og:site_name" content="Living Without the Bunnies">
+<meta property="og:title" content="My kids are innumerate">
+<meta property="og:url" content="http://percival-music.ca/blog/2010-02-27-kids-innumerate.html">
+<meta property="og:description" content="I ran into an unexpected problem in the programming class: these kids
+can't do simple math. They couldn't figure out how to make changes (i.e.
+items cost 12.74, given 20.00, print the number of coins ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2010-02-27T05:46:00Z">
+<meta property="article:tag" content="bunnies">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h2 class="p-name entry-title" itemprop="headline name"><a href="../blog/2010-02-27-kids-innumerate.html" class="u-url">My kids are innumerate</a></h2>
+
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2010-02-27-kids-innumerate.html" rel="bookmark"><time class="published dt-published" datetime="2010-02-27T05:46:00Z" itemprop="datePublished" title="2010-02-27 05:46">2010-02-27 05:46</time></a></p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>I ran into an unexpected problem in the programming class: these kids
+can't do simple math. They couldn't figure out how to make changes (i.e.
+items cost 12.74, given 20.00, print the number of coins to return).
+They couldn't even follow an explanation of how to convert a number of
+the numeric keypad (on the right of your keypad) into its row and
+column!</p>
+<p>Now, I'm willing to give them a pass for the "making change" problem,
+since that involves finding the remainder after division. I don't know
+why <em>why</em> I'm willing to forgive them for being unable to grasp a piece
+of grade 5 math (I think), but I am. Maybe it's just because the numbers
+can have four digits.</p>
+<p>But the numeric keypad?!? Going from 7 =&gt; (0,0), 5 =&gt; (1,1), 1 =&gt; (2,0),
+etc?! This is math on SINGLE DIGITS.</p>
+<p>Hey, as an exercise, stop reading the blog and try to figure out the
+forumlae. You need one to calculate the row number, and one to do the
+column number. I'm really curious about whether you find it hard.</p>
+<p>Go on, try it. I'll wait. Here's what the keypad looks like, in case
+you're on a laptop and can't remember:</p>
+<blockquote>
+<pre class="literal-block">
+7 8 9
+4 5 6
+1 2 3
+</pre>
+</blockquote>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>If you want a hint, try subtracting 1 from the numeric keypad numbers,
+so that you have numbers like this:</p>
+<blockquote>
+<pre class="literal-block">
+6 7 8
+3 4 5
+0 1 2
+</pre>
+</blockquote>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Another hint? Well, the numbers in the left-most column are 6, 3, 0.
+Those are all divisible by 3, giving us 2, 1, 0. In fact, if you divide
+any number by three and round down, you'll get 2, 1, 0 (depending on
+which row it's in).</p>
+<p>But we want the reverse of those: 0, 1, 2. How can we get from 2, 1, 0
+to 0, 1, 2?</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Right, we just take 2-x. Putting this all together, we have:</p>
+<blockquote>
+row = 2 - (number-1)/3
+(if we always round down the division by 3; the computer does that
+automatically when we do arithmetic on integers)</blockquote>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Once we have the row number, subtracting three times that value from the
+initial number gives us:</p>
+<blockquote>
+<pre class="literal-block">
+0 1 2
+0 1 2
+0 1 2
+</pre>
+</blockquote>
+<p>So it's trivial to figure out what the column is. On the computer, we
+can use the remainder ("%" -- it looks kind-of like a division slash
+"/") operation:</p>
+<blockquote>
+row = (number-1)%3</blockquote>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>I <em>really</em> didn't think that this was hard, but the kids were watching
+me explain this like I was proving the central limit theorem or
+something. This left me quite sad -- how badly can the high school
+system fail students such that university-level children can't do this
+kind of simple math?!?!</p>
+<p>Anybody with experience teaching first-year students, or advanced high
+school students: am I being unreasonable here? And do you have any tips
+about how to get them comfortable with such math? Unfortunately, being
+able to solve problems like this is rather critical to programming, but
+this course is already pretty full as it is. I really don't think I can
+afford to spend two weeks on "math thinking" exercises, even though
+that's what they desperately need. :(</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>On the plus side, giving a lecture to them was <em>really</em> fun. It was in
+one of the lecture theatres in the engineering building, which has real,
+honest-to-goodness blackboards. Blackboards with decades of chalk
+powdered onto them. I'm also not familiar with chalk (in the past, I've
+always lectured from pdf slides or with a whiteboard), so I kept on
+wiping my hands on my jeans or sweater. I was covered in chalk by the
+end of the hour... it was just like being a kid and playing in the mud.
+You know, when you get completely filthy and you know it'll take ages to
+clean up, but you're having too much fun getting dirty to care? Just
+like that, but instead of mud or snow, I was (figuratively) rolling
+around in chalk.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/bunnies.html" rel="tag">bunnies</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../blog/2010-02-18-back-life.html" rel="prev" title="Back to normal life">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../blog/2010-05-06-turnitin-drinking.html" rel="next" title='Turn "turnitin" into a drinking game'>Next post</a>
+            </li>
+        </ul></nav></aside></article></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

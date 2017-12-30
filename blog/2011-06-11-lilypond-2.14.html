@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>LilyPond 2.14 is out | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://percival-music.ca/blog/2011-06-11-lilypond-2.14.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Graham Percival">
+<link rel="prev" href="../blog/2011-05-27-smc2011-paper.html" title="Vivi's first academic publication: SMC 2011" type="text/html">
+<link rel="next" href="../blog/2011-06-26-ccbeamer-0.2.html" title="ccbeamer 0.2" type="text/html">
+<meta property="og:site_name" content="Living Without the Bunnies">
+<meta property="og:title" content="LilyPond 2.14 is out">
+<meta property="og:url" content="http://percival-music.ca/blog/2011-06-11-lilypond-2.14.html">
+<meta property="og:description" content="I'm happy to announce the release of GNU LilyPond 2.14. LilyPond is a
+music engraving program, devoted to producing the highest-quality sheet
+music possible. It brings the aesthetics of traditionally ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2011-06-11T15:10:00Z">
+<meta property="article:tag" content="bunnies">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h2 class="p-name entry-title" itemprop="headline name"><a href="../blog/2011-06-11-lilypond-2.14.html" class="u-url">LilyPond 2.14 is out</a></h2>
+
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2011-06-11-lilypond-2.14.html" rel="bookmark"><time class="published dt-published" datetime="2011-06-11T15:10:00Z" itemprop="datePublished" title="2011-06-11 15:10">2011-06-11 15:10</time></a></p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>I'm happy to announce the release of GNU LilyPond 2.14. LilyPond is a
+music engraving program, devoted to producing the highest-quality sheet
+music possible. It brings the aesthetics of traditionally engraved music
+to computer printouts. Many improvements have been made in the past two
+and a half years since the previous main stable version. (yes, that's a
+long time between stable versions!)</p>
+<div class="section" id="lilypond-is-doing-great-lilypond-is-headed-for-disaster">
+<h2>LilyPond is doing great! LilyPond is headed for disaster!</h2>
+<p>On one hand, we're doing great. The new stable version 2.14.0 is finally
+out, we've finally started the <a class="reference external" href="http://lilypond.org/~graham/gop/">Grand Organization
+Project</a> to resolve various
+administrative problems, and there are no huge problems which will stop
+us from releasing 2.16.0 in a few months.</p>
+<p>On the other hand, we still have far too many tasks concentrated in far
+too few people. This is not healthy, both for the individuals doing the
+work, but also for the project as a whole.</p>
+</div>
+<div class="section" id="sustainable-development-in-software-projects">
+<h2>"Sustainable development" in software projects</h2>
+<p>Every person will leave the LilyPond project sooner or later. Our lives
+change, our hobbies shift, and unfortunately our health and lifespans
+are not infinite. What would happen if, for example, I decided that my
+PhD thesis and future career were more important than LilyPond and that
+I should drop out the project?</p>
+<p>(this is not an idle question; I honestly <em>should</em> quit LilyPond. Some
+open-source volunteering would still be good for my career, but it would
+be much more benefitial for me to spend that time on
+<a class="reference external" href="http://marsyas.info/">Marsyas</a>,
+<a class="reference external" href="http://chuck.cs.princeton.edu/">ChucK</a>, or even
+<a class="reference external" href="https://ccrma.stanford.edu/software/stk/">STK</a> instead. Those
+project are much more aligned with my research and potential
+tenure-track jobs, and I would learn much more by working on them
+instead of LilyPond.)</p>
+<p>Such problems are charmingly referred to a project's <a class="reference external" href="http://en.wikipedia.org/wiki/Bus_factor">Bus
+factor</a>: how many people
+would need to be hit by a bus before the project falls into disarray?
+LilyPond has a quite low bus factor -- losing as few as three people
+would cause massive problems.</p>
+<p>I gave a
+<a class="reference external" href="http://percival-music.ca/blog/2010-08-01-sustainable-development.html">presentation</a>
+at RMLL 2010 about this last year, and I was reminded of this by a
+recent <a class="reference external" href="http://blogs.gnome.org/bolsh/2011/05/31/effective-mentoring-programs/">discussion about mentoring
+efforts</a>
+by a gnome developer looking at the approximate 25% success rate (over a
+variety of projects, including LilyPond).</p>
+</div>
+<div class="section" id="decentralization">
+<h2>Decentralization</h2>
+<p>A low "bus factor" means that work (or knowledge or power) is highly
+concentrated in a few people. It's much better for the project if
+work/knowledge/power is distributed more evenly -- losing one person
+will cause fewer problems.</p>
+<p>There are other benefits to decentralization, of course. A lower
+workload on "central" people will lessen burn-out, which may encourage
+them to stick around for longer. That can, in turn, lessen the workload
+on other people: there are many cases where an "old-timer" can make a
+few suggestions in a 5-minute email which save a new contributor
+literally hours of work and frustration. Everybody wins!</p>
+</div>
+<div class="section" id="dangers-of-burn-out">
+<h2>Dangers of burn-out</h2>
+<p>I'm (in)famous on the LilyPond mailing lists for arguing against new
+proposals. "We don't have the resources / nice idea, but wait until... /
+you can do that with a user .ly file / etc".</p>
+<p>In some cases this is due to my subscribing in a certain philosophy of
+design: <em>Il semble que la perfection soit atteinte non quand il n'y a
+plus rien à ajouter, mais quand il n'y a plus rien à retrancher.</em>
+(perfection is finally attained not when there is no longer anything to
+add, but when there is no longer anything to take away; from <a class="reference external" href="http://en.wikiquote.org/wiki/Antoine_de_Saint_Exup%C3%A9ry">quotes
+from Antoine de Sainte
+Exupéry</a>).
+A similar idea was mentioned by Steve Jobs in a <a class="reference external" href="http://blogs.forbes.com/carminegallo/2011/05/16/steve-jobs-get-rid-of-the-crappy-stuff/">recent
+interview</a>:</p>
+<blockquote>
+People think focus means saying yes to the thing you've got to focus
+on. But that's not what it means at all. It means saying no to the
+hundred other good ideas that there are. You have to pick carefully.
+I'm actually as proud of the things we haven’t done as the things I
+have done. Innovation is saying 'no' to 1,000 things.</blockquote>
+<p>But the other part is that I simply don't want more work. Every single
+time that somebody comes up to me with an excited new idea, it breaks my
+heart because my first thought is "oh boy, now I need to express polite
+enthusiasm". It doesn't matter if it's over email, in a chat, in a
+meeting, or in a private conversation. Doesn't matter if it's from a
+longtime developer or an unknown user. Doesn't matter if I think it's a
+brilliant idea, an obvious but useful improvement, or a pie-in-the-sky
+ludicrous concept. My first thought is always the same: "bleh, more
+work".</p>
+<p>At the moment, I'm committed to doing 10 hours of LilyPond work per
+week. I've "saved up" a few hours from the previous two months
+(including my vacation) because I knew that I'd be busier after 2.14
+came out -- at the time of this writing, I have 12 hours of LilyPond
+time left. Each Monday morning, I add 10 hours to that figure. By my
+estimation, only considering the published <a class="reference external" href="http://lilypond.org/doc/v2.13/Documentation/contributor/grand-organization-project-_0028gop_0029">Grand Organization
+Project</a>
+and <a class="reference external" href="http://lilypond.org/doc/v2.13/Documentation/contributor/grand-lilypond-input-syntax-standardization-_0028gliss_0029">Grand LilyPond Input Syntax
+Standardization</a>
+backlogs, I won't be able to do make any LilyPond bugfixes or new
+features of my own until the end of 2011. My entire time will be spent
+organizing and helping other people to do work.</p>
+</div>
+<div class="section" id="you-can-help">
+<h2>You can help</h2>
+<p>Get involved! Anything that makes LilyPond less centralized will help.</p>
+<p>Even if it has nothing to do with me personally, there will probably be
+a "trickle up" effect from reducing the burden of other people. For
+example, if a translator started doing some of the work of Francisco
+(the Translation Meister), he would have more time to investigate
+problems himself instead of asking me to help. Similarly, if a developer
+offers to seriously mentor one or two new programmers, that might mean
+one or two fewer programmers who come to me for help because everybody
+else is ignoring them. If you're a new contributor, then spend some
+extra time talking to other new contributors -- provide moral support
+and somebody to commiserate with, even if you can't discuss anything
+technical!</p>
+<p>As for me personally... I spend about 2 hours a week on completely
+mindless administration. Stuff that could almost be done by a computer
+program. I could easily write 5 or 6 sentences on paper, and somebody
+could follow those blindly. For example, twice a week I send a "patches
+countdown" email.</p>
+<ol class="arabic simple">
+<li>go to the <a class="reference external" href="http://code.google.com/p/lilypond/issues/list?can=2&amp;q=label:patch%20patch=review&amp;sort=patch&amp;colspec=ID%20Type%20Status%20Priority%20Stars%20Owner%20Patch%20Summary">list of patches for
+review</a>
+</li>
+<li>pick two or three issues</li>
+<li>find the codereview URL inside the issue</li>
+<li>click on that link</li>
+<li>if there are any reviews, check that the last review is not negative</li>
+<li>include the subject line and link to the codereview page in an email
+to lilypond-devel</li>
+</ol>
+<p>All I need to offload this task is a reliable person who doesn't mind a
+bit of boredom offering to do it. 15 minutes, twice a week. If there's
+anything unusual, I'm happy to discuss it (and possibly modify the
+instructions to handle such cases). But I'm not asking for any knowledge
+or creativity.</p>
+<p>There are other tasks which <em>would</em> require knowledge and/or creativity.
+For example, many people ask for a changelog -- what's new in each
+release? If somebody is interested in lilypond development, they could
+spend 1-2 hours a week reading the developer email list and the git
+changelog, then writing a 3-4 sentence summary for each release. That
+would be a nice "gentle" introduction to how things work, and it would
+benefit many users.</p>
+<p>Similarly, there are some tasks which are regular weekly affairs, and
+others which are one-time. Here's a great non-really-technical one-time
+task: our list of <a class="reference external" href="http://lilypond.org/doc/v2.15/Documentation/contributor/major-release-checklist">places to send release announcements
+to</a>
+is quite old. Half of the links don't work. So I haven't bothered to
+make any release announcements (other than our own webpage) at all. If
+somebody wanted to spread the word, they could spend 2-5 hours looking
+for relevant places to announce lilypond, maybe asking for other
+suggestions from lilypond-user, and make a nice list. Then either send
+our release announcement to those places himself, or else ask me to do
+it. I wouldn't mind doing it as long as all the links work and I don't
+need to hunt around to find out how to send the announcement (i.e. give
+me a specific link to the announcement form, not a generic link to the
+main website!)</p>
+</div>
+<div class="section" id="square-pegs-into-round-holes">
+<h2>Square pegs into round holes</h2>
+<p>In the past, we haven't done a good job of organizing people in
+LilyPond. Some people are suited to regular work; other people are
+suited to one-time jobs. Some people like technical challenges and
+creative freedom; other people prefer a rigid set of guidelines so they
+know that they're not making any mistakes.</p>
+<p>We need people for all sorts of tasks, and over the next few weeks, I'm
+really going to try to make sure that everybody has a job that suits
+them. We've lost a lot of potential effort by asking people to do tasks
+which don't really appeal to them, and then not having those jobs "open"
+when another person offers to help.</p>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/bunnies.html" rel="tag">bunnies</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../blog/2011-05-27-smc2011-paper.html" rel="prev" title="Vivi's first academic publication: SMC 2011">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../blog/2011-06-26-ccbeamer-0.2.html" rel="next" title="ccbeamer 0.2">Next post</a>
+            </li>
+        </ul></nav></aside></article></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Tempo experiment analysis: the bad | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://percival-music.ca/blog/2010-10-09-tempo-bad.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Graham Percival">
+<link rel="prev" href="../blog/2010-10-08-tempo-good.html" title="Tempo experiment analysis: the good" type="text/html">
+<link rel="next" href="../blog/2010-10-10-tempo-ugly.html" title="Tempo experiment analysis: the ugly" type="text/html">
+<meta property="og:site_name" content="Living Without the Bunnies">
+<meta property="og:title" content="Tempo experiment analysis: the bad">
+<meta property="og:url" content="http://percival-music.ca/blog/2010-10-09-tempo-bad.html">
+<meta property="og:description" content='The previous post discussed good things
+about the tempo analysis so far. This one talks about bad stuff.
+I had a great idea about three weeks into the experiment (aka "too
+late") -- if I recorded the '>
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2010-10-09T05:45:00Z">
+<meta property="article:tag" content="bunnies">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h2 class="p-name entry-title" itemprop="headline name"><a href="../blog/2010-10-09-tempo-bad.html" class="u-url">Tempo experiment analysis: the bad</a></h2>
+
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2010-10-09-tempo-bad.html" rel="bookmark"><time class="published dt-published" datetime="2010-10-09T05:45:00Z" itemprop="datePublished" title="2010-10-09 05:45">2010-10-09 05:45</time></a></p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>The previous post discussed <a class="reference external" href="../blog/2010-10-08-tempo-good.html">good things</a>
+about the tempo analysis so far. This one talks about bad stuff.</p>
+<p>I had a great idea about three weeks into the experiment (aka "too
+late") -- if I recorded the time that the metronome started, I could
+figure out how long somebody watched the metronome before starting to
+tap. I knew that the timer only gave me the number of seconds since
+flash started to run (i.e. when somebody viewed my webpage), but I had
+previously decided that this wasn't a problem, because I could easily
+adjust for the overall offset by looking at the tap-times. I was so
+focused on the tempo detection that I didn't think about other
+interesting data that I could gather.</p>
+<p>Whoops. That was a nice opportunity missed. :(</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>I'm not certain whether to regret the lack of tracking individual
+players. I'm not takling about <em>identifying</em> specific persons, but just
+knowing that (30? 200?) people played the game; that person X played 80
+games, while person Y played 3 games; etc.</p>
+<p>Technologically this would have taken a day or two (either browser
+cookies or flash cookies; I've never dealt with them before, but it
+can't be all that hard). Not a big deal. I could have even simply
+recorded their IP addresses! I mean, the web server logs record those
+all the time; I wouldn't have had to do <em>any</em> extra programming to get
+those. Granted, the data would be a bit fuzzy if people played the game
+at home and work, or on a desktop and their mobile phone, or having
+multiple people playing at the same house... but even that kind of rough
+idea could be helpful.</p>
+<p>However, it probably would have added about 10 hours of extra red tape.
+I had enough trouble getting the university ethics committee to accept
+the game as it is (i.e. an anonymous flash game, but without signed
+consent forms); the extra scrutiny / extra forms / extra emails that
+would be required to add a simple web tracking cookie (of the kind that
+virtually every website uses these days!) would be significant.</p>
+<p>Also, I couldn't honestly argue that this information would be necessary
+for my research. I mean, yes, tracking individual users will be
+necessary for the rhythm grading -- but <em>this</em> experiment was about
+tempo detection, and all I need to know is "a human produced this series
+of taps, and judged the automatic tempo detection to be ok/not ok".
+Knowing that a particular set of tap-games all came from the same person
+would be neat, but not actually useful for the tempo detection.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>However, by far the worst problem was the grading. A large mouthful of
+crow for me here. :(</p>
+<p>This was a last-minute addition -- the first version of the experiment
+didn't have any grading at all! But when I tried it out on my first
+trial group (i.e. my Mom :), the feedback was quite negative: it wasn't
+fun, there wasn't any real reason to play the game, etc. (I also heard
+that the "relative mode" was too difficult to understand, so I dropped
+that entire type of tempo detection. Three weeks of work down the drain!
+Lesson learned: do some user testing as soon as possible.)</p>
+<p>So I quickly hacked on the rhythm grading that I used for my Masters'
+project. I added the warning:</p>
+<blockquote>
+"[The rhythm grade] is an <em>approximate</em> grade for how well your
+rhythms fit into your tempo. This grade calculation is known to be
+<em>incorrect</em> in some circumstances..."</blockquote>
+<p>but the grade would give people something to focus on.</p>
+<p>And focus on it they did. :|</p>
+<p>In retrospect, I shouldn't have been surprised at the amount of interest
+in getting high grades -- <em>I'm</em> highly competitive, and my published
+paper that gets the most citations is all about music education with
+games (in particular, score-giving games!). So I really have no excuse
+for not expecting people to focus on their rhythm grade, instead of the
+tempo detection.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>But wait, it gets worse! After I added the grading, I did another test
+run with a larger group of family and friends. Two people commented that
+the grading seemed overly generous, but a very quick test ("good taps --
+ok, 98%. tap randomly -- 0%. tap with one tap in the wrong place -- 38%.
+seems ok!") didn't reveal anything horribly wrong. And since I was
+already two weeks into my experiment time (the ethics committee approval
+is for a specific range of dates, and I didn't start user testing until
+the beginning of this range. I should have asked for more time; I'm
+certain I would have gotten it!), I went ahead and sent it to the wider
+audience (including this blog). I mean, I'm using the same grading as my
+Masters, and I tested <em>that</em> one quite a bit, right?</p>
+<p>Well... it was <em>almost</em> the same as the earlier grading. The difference
+is that the Masters version acted on frame sizes -- it looked at
+recorded audio, divided them into frames of 512 samples, then looked for
+claps in the RMS of those frames. Each frame is 512 samples / 44100
+samples/second = 11.6 milliseconds long. The flash timer gave me
+seconds.</p>
+<p>Now, I didn't forget to convert between milliseconds and seconds. But I
+<em>did</em> forget about the frame size. So the total "amount of error" in a
+tap-game was 11.6 times too small. And the grade was simply
+<tt class="docutils literal">100.0 - total_errors</tt>.</p>
+<p>Ouch. What effect did that have? Well, compare these two graphs:</p>
+<p><img alt="image0" src="http://percival-music.ca/blogfiles/score-easy.png" style="width: 100.0%;"><img alt="image1" src="http://percival-music.ca/blogfiles/score-adj-easy.png" style="width: 100.0%;"></p>
+<p>Ouch.</p>
+<p>If you missed it, look at the scale of the X axis. The scores range from
+96% to 100%. They were supposed to go from 60% to 100%.</p>
+<p>NB: these are the scores for tap-games with absolutely no ambiguity. No
+missing taps, no extra taps, no incorrect rhythms, etc. The other 481
+tap-games had much lower scores, due to penalities for
+missing/extra/incorrect taps. It wasn't quite a <em>complete</em> disaster --
+if I were using the same type of grading algorithm that Rock Band and
+Guitar Hero seem to use ("if the event was within X seconds of the
+correct time, get full points; otherwise, get 0 points"), then all of
+those tap-games would probably have received 100%.</p>
+<p>But even if it wasn't a complete disaster, it was certainly a huge
+screw-up. It doesn't affect the scientific outcome -- I have the raw
+data; I can test all my tempo detection stuff on those taps. And I can
+also experiment with different grading algorithms to see what kind of
+distributions they'd give.</p>
+<p>However, it made the game less fun (or less educational) to the
+participants. I suggested that, in return for your participation in this
+experiment, you could see a reasonable grade of your rhythmic accuracy,
+for your amusement or education. That didn't happen, and I apologize.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>On to <a class="reference external" href="../blog/2010-10-10-tempo-ugly.html">the ugly</a>, or back to <a class="reference external" href="../blog/2010-10-08-tempo-good.html">the
+good</a>.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/bunnies.html" rel="tag">bunnies</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../blog/2010-10-08-tempo-good.html" rel="prev" title="Tempo experiment analysis: the good">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../blog/2010-10-10-tempo-ugly.html" rel="next" title="Tempo experiment analysis: the ugly">Next post</a>
+            </li>
+        </ul></nav></aside></article></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

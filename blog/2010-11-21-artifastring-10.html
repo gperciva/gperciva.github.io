@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Artifastring 1.0 | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://percival-music.ca/blog/2010-11-21-artifastring-10.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Graham Percival">
+<link rel="prev" href="../blog/2010-11-20-firelily.html" title="Firelily" type="text/html">
+<link rel="next" href="../blog/2011-01-02-beginning-violin.html" title="Beginning violin" type="text/html">
+<meta property="og:site_name" content="Living Without the Bunnies">
+<meta property="og:title" content="Artifastring 1.0">
+<meta property="og:url" content="http://percival-music.ca/blog/2010-11-21-artifastring-10.html">
+<meta property="og:description" content="I'm happy to announce the release of Artifastring 1.0, a highly
+optimized physical simulation of a violin for sound synthesis.
+http://percival-music.ca/artifastring/
+This is an implementation of modal">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2010-11-21T00:03:00Z">
+<meta property="article:tag" content="bunnies">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h2 class="p-name entry-title" itemprop="headline name"><a href="../blog/2010-11-21-artifastring-10.html" class="u-url">Artifastring 1.0</a></h2>
+
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2010-11-21-artifastring-10.html" rel="bookmark"><time class="published dt-published" datetime="2010-11-21T00:03:00Z" itemprop="datePublished" title="2010-11-21 00:03">2010-11-21 00:03</time></a></p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>I'm happy to announce the release of Artifastring 1.0, a highly
+optimized physical simulation of a violin for sound synthesis.
+<a class="reference external" href="http://percival-music.ca/artifastring/">http://percival-music.ca/artifastring/</a></p>
+<p>This is an implementation of modal bowed string physical modeling as
+described by Matthias Demoucron; references are given on the project's
+main page. The code is available under the GPL v3 or higher.</p>
+<p>I had a blast optimising this stuff -- actually, I had far <em>too much</em>
+fun working on tiny speed improvements. Surprisingly, making the code
+multithreaded didn't help; the extra overhead of the mutex and condition
+variables nuked the benefit of modeling each violin string separately
+for any realistic length of discretized input.</p>
+<p>I won't get into everything I did, but here's the main four points:</p>
+<ul>
+<li>
+<p class="first">As suggested in a conference paper, if a violin string wasn't
+vibrating and had no input, I didn't bother calculating new values
+for it -- I just returned 0.0. (this model doesn't include
+sympathetic vibrations, so there was absolutely no change in the
+output from doing this).
+I also detected if the string was barely vibrating (i.e. producing a
+force of less than 1e-6 on the bridge and each modal velocity was
+below 1e-4), and then "turned off" that string. This step <em>did</em>
+change the output, but only very slightly. I picked those values
+experimentally -- I plucked the string, then looked for the time when
+I really couldn't hear the sound any more. Admittedly, I was using a
+pair of £10 headphones... if I had a more expensive sound setup
+(whether headphones, speakers, a larger room, room with less
+background noise, etc), these values might be too low. If that were
+the case, it's easy enough to change those constants.</p>
+</li>
+<li>
+<p class="first">Caching any values more complicated than addition or multiplication.
+In particular, the results of any trig functions were cached -- the
+amount of extra memory required is trivial (something like 20 kb ?).</p>
+</li>
+<li>
+<p class="first">The code calculates eigenvectors of the string for each mode. This is
+a series of calculatations in the form</p>
+<blockquote>
+<pre class="literal-block">
+y_i = sin(x*i)   , i = 0, 1, 2... N (where N=56 in my case)
+</pre>
+</blockquote>
+<p>There's a <a class="reference external" href="http://groovit.disjunkt.com/analog/time-domain/fasttrig.html">well-known
+optimization</a>
+for this: to calculate y_n = sin(nW+B), use y_n =
+2*cos(W)*y_(n-1) - y(n-2).</p>
+<p>I could improve on that, though. In my case, there's no B, and I know
+that sin(0) = 0. So I only need to calculate sin(-W) and cos(W).</p>
+<p>But wait, it gets better! The quoted webpage includes this code:</p>
+<blockquote>
+<pre class="literal-block">
+double y[3];
+double keep[N];
+for (int i=0; i&lt;N; i++) {
+    y[2] = p*y[1] - y[0];
+    keep[i] = sqrt_two_div_l * y[2];
+    y[0] = y[1];
+    y[1] = y[2];
+}
+</pre>
+</blockquote>
+<p>but this involves unnecessary copying. We can avoid that by using a
+ring buffer of size 2:</p>
+<blockquote>
+<pre class="literal-block">
+double y[2];
+double keep[N];
+unsigned int latest = 0;
+for (int i=0; i&lt;N; i++) {
+    y[latest] = p*y[!latest] - y[latest];
+    keep[i] = sqrt_two_div_l * y[latest];
+    latest = !latest;
+}
+</pre>
+</blockquote>
+<p>hmm... it just occurred to me that I could avoid using y if I
+postponed the multiplication by sqrt_two_div_l until after I'd
+finished calculating the entire array. I mean, go through the array
+once calculating the sin() values, then go through again multiplying
+everything by sqrt_two_div_l. I could also get rid of the "latest"
+variable, and just use i. Hmm... :)</p>
+</li>
+<li>
+<p class="first">Fast ring buffer pointer calculation: the traditional way is to use
+modulo:</p>
+<blockquote>
+<pre class="literal-block">
+i = (i++) % BUFFER_SIZE;
+</pre>
+</blockquote>
+<p>But modulo is division -- it's <em>slow</em>. Another way is to use a
+comparison:</p>
+<blockquote>
+<pre class="literal-block">
+i++;
+if (i == BUFFER_SIZE) {
+    i = 0;
+}
+</pre>
+</blockquote>
+<p>That's better, but still uses a bunch of CPU cycles. To improve it
+even more (courtesy of my brother), if you always use a buffer size
+which is a power of 2, you can just use an AND!</p>
+<blockquote>
+<pre class="literal-block">
+i++;
+i &amp;= BUFFER_SIZE_MINUS_ONE;
+</pre>
+</blockquote>
+<p>Of course, we've defined BUFFER_SIZE and BUFFER_SIZE_MINUS_ONE at
+compile-time.</p>
+</li>
+</ul>
+<p>Sadly, none of this optimization is actually useful. Ok, the "inactive
+string" trick cut the processing time by more than half -- but the other
+tricks only gave 2-5% improvements in speed. One of the first lessons
+for people doing computer science is that running time doesn't matter.
+The real improvements are made at the level of algorithms... if you can
+do O(ln(n)) less operations than the next person, then it doesn't matter
+if you wrote your code in perl and he used hand-crafted assembly. Your
+code is guaranteed to be faster for any sufficiently large problem.</p>
+<div class="line-block">
+<div class="line">... of course, in the grand scheme of "doing stupid things," spending
+3 days obsessing about speed and making your code run 20% faster is
+hardly a terrible thing. I mean, the next stage of the project is
+using the physical model to play music; that will involve a *lot* of
+experiments, and the faster the code runs, the more comfortable those
+experiments will be.</div>
+<div class="line">Anyway, there's the code. I don't have any fancy examples yet; I'm
+still learning how to "play" this virtual instrument. I should have
+neat stuff in a month or two.</div>
+</div>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/bunnies.html" rel="tag">bunnies</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../blog/2010-11-20-firelily.html" rel="prev" title="Firelily">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../blog/2011-01-02-beginning-violin.html" rel="next" title="Beginning violin">Next post</a>
+            </li>
+        </ul></nav></aside></article></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

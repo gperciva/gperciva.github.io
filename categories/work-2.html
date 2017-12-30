@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Posts about work (old posts, page 2) | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS for tag work (en)" href="../categories/work.xml">
+<link rel="canonical" href="http://percival-music.ca/categories/work-2.html">
+<link rel="prev" href="../categories/work-3.html" type="text/html">
+<link rel="next" href="../categories/work-1.html" type="text/html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><link rel="alternate" type="application/rss+xml" title="RSS for tag work (en)" href="../categories/work.xml">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><header><h1>Posts about work (old posts, page 2)</h1>
+    </header><div class="postindex">
+    <article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2008-11-04-mewer-03.html" class="u-url">MEWER 0.3</a></h2>
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2008-11-04-mewer-03.html" rel="bookmark"><time class="published dt-published" datetime="2008-11-04T08:39:00Z" title="2008-11-04 08:39">2008-11-04 08:39</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>The third public test of MEWER is online. This displays the metronome in
+javascript. There's still some slight drifting with the tempo, but
+nothing anywhere close to flash. Try it here: <a class="reference external" href="http://percival-music.ca/mewer.html">MEWER
+0.3</a>.</p>
+<p>I've also made it a bit harder, although it still doesn't check to see
+if you've passed the first exercise before giving you the second one.
+That'll happen in the next major version... as long as the timing works
+better for people in this version.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2008-11-03-flash-timer-is-fail.html" class="u-url">Flash timing code is fail</a></h2>
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2008-11-03-flash-timer-is-fail.html" rel="bookmark"><time class="published dt-published" datetime="2008-11-03T09:06:00Z" title="2008-11-03 09:06">2008-11-03 09:06</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>Yesterday's test was a great success -- in that the test discovered a
+huge flaw in the program. Or rather, it found a huge flaw in the
+platform: the <tt class="docutils literal">Timer</tt> object in Flash is horribly inaccurate.</p>
+<p>I'm not a complete idiot -- I did some initial tests with flash before
+spending ten hours writing that public test. Specifically, I ensured
+that the clap-detection functionality was accurate enough. It wasn't
+perfect (my physical metronome varied by 5 ms... although to be fair to
+flash, it's possible that the metronome itself was varying), but it was
+good enough.</p>
+<p>However, I didn't test that flash could make a light blink to within 5
+ms. In retrospect, I should have. But it never occurred to me that it
+would be a problem.</p>
+<p>(and yes, it took almost all my willpower to avoid using "flash" as a
+verb in the previous paragraph)</p>
+<p>You can test it for yourself on your own computer: <a class="reference external" href="http://percival-music.ca/software/metrotest/index.html">Metronome
+test</a></p>
+<p>On my system, a modest dual-2.0 Ghz macbook running OSX 10.4.11, half
+the time I get a maximum delay of about 40ms, and half the time it
+spikes up to over 200ms. That's totally unacceptable for a metronome --
+especially when I'm going to be grading students on their clapping
+ability. The whole point of this program, and my Master's thesis in
+general, is that computers can provide objective, accurate, and above
+all, trust-worth grading. If students can't trust that the computer
+grades are accurate (at least to 5%), the program will be a pathetic toy
+rather than an educational aid. And we have more than enough pathetic
+toys masquerading as educational tools (or "edutainment").</p>
+<p>Note that the above test is <strong>only</strong> timing the <tt class="docutils literal">Timer</tt> class. I'm not
+doing anything else here -- adding other stuff (like listening to claps
++ key presses, drawing flashing lights, etc) can only make it worse.</p>
+<p>So what now? I can think of one last thing to try: display the metronome
+as an animated gif on the web page. Haxe can pass information
+("remoting") to other programs. So the flash game will tell a javascript
+program to display an animated gif (or svg/mng, if Internet Exporer has
+finally caught up 1999/2001) on the HTML page.</p>
+<p>Yeah, that's quite a bit of duct tape, even for me. But what's the
+alternative? Abandon 90% of potential MEAWS users by ignoring Windows?
+Spending a week setting up a development environment on windows so that
+I can compile it? Neither of those options are particularly appealing.
+:(</p>
+<p>Anyway, thank you to everybody who tried the past version. I'll
+hopefully have this duct-tape flash+javascript+gif stuff ready for
+testing within 24 hours.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2008-11-02-mewer.html" class="u-url">MEWER</a></h2>
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2008-11-02-mewer.html" rel="bookmark"><time class="published dt-published" datetime="2008-11-01T04:02:00Z" title="2008-11-01 04:02">2008-11-01 04:02</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<p>The rhythm game looks like it'll work in flash. It's tentatively called
+MEWER, although I haven't figured out what this will be an acronym for.</p>
+<p>Right now I'd like to check that it works on a wide range of computers.
+I, of course, don't have a wide range of computers myself, so I
+therefore turn to the internets for help. If you wouldn't mind spending
+two minutes, please test the <a class="reference external" href="http://percival-music.ca/test.html">rhythm
+test</a>.</p>
+<div class="line-block">
+<div class="line">Just go there, enable microphone and clap, or disable microphone and
+hit the space bar. It only has 2 exercises at the moment, and it
+doesn't even check that you passed the first exercise before giving
+you the second, but that's plenty for me to know whether it's worth
+programming the rest of it.</div>
+</div>
+<p>Score: I'm a cellist, so I consistently get above 95%. If you're a
+singer, you're probably lucky to get above 50%. :P Other instruments
+will fall somewhere in between those. (singers: go ahead and try to
+prove me wrong by posting your scores on my blog. It will be good
+practice for when I put the <strong>real</strong> exercises on MEWER. These two
+exercises are from levels 1 and 3 out of 10.)</p>
+<p>Update: <a class="reference external" href="http://percival-music.ca/test7.html">MEWER for flash 7</a>.</p>
+</div>
+    </div>
+    </article>
+</div>
+
+        <nav class="postindexpager"><ul class="pager">
+<li class="previous">
+                <a href="../categories/work-3.html" rel="prev">Newer posts</a>
+            </li>
+            <li class="next">
+                <a href="../categories/work-1.html" rel="next">Older posts</a>
+            </li>
+        </ul></nav></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

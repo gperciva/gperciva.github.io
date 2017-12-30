@@ -1,0 +1,4 @@
+Sitemap: http://percival-music.ca/sitemapindex.xml
+
+User-Agent: *
+Host: percival-music.ca

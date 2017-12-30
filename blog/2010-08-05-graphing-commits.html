@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Graphing commits per developer | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://percival-music.ca/blog/2010-08-05-graphing-commits.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Graham Percival">
+<link rel="prev" href="../blog/2010-08-01-sustainable-development.html" title="Sustainable Development in F/OSS" type="text/html">
+<link rel="next" href="../blog/2010-08-06-tempo-game.html" title="Tempo Game" type="text/html">
+<meta property="og:site_name" content="Living Without the Bunnies">
+<meta property="og:title" content="Graphing commits per developer">
+<meta property="og:url" content="http://percival-music.ca/blog/2010-08-05-graphing-commits.html">
+<meta property="og:description" content="I gave a talk at Rencontres Mondiales du Logiciel
+Libre, or the Libre Software Meeting 2010, over
+three weeks ago. This post has the scripts that I used to create the
+graphs of commits per developer. ">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2010-08-05T08:01:00Z">
+<meta property="article:tag" content="bunnies">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h2 class="p-name entry-title" itemprop="headline name"><a href="../blog/2010-08-05-graphing-commits.html" class="u-url">Graphing commits per developer</a></h2>
+
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2010-08-05-graphing-commits.html" rel="bookmark"><time class="published dt-published" datetime="2010-08-05T08:01:00Z" itemprop="datePublished" title="2010-08-05 08:01">2010-08-05 08:01</time></a></p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>I gave a talk at <a class="reference external" href="http://rmll.info">Rencontres Mondiales du Logiciel
+Libre</a>, or the Libre Software Meeting 2010, over
+three weeks ago. This post has the scripts that I used to create the
+graphs of commits per developer. These scripts aren't particularly
+inspired, but there's been some interest in them, so in the spirit of
+open source and just plain good science, here there are. :)</p>
+<p>Here's the ultimate goal: a graph showing commits per developer.</p>
+<p><img alt="image0" src="http://percival-music.ca/blogfiles/combined-log.png" style="width: 320px;"></p>
+<p>More context is in the previous post about the talk, <a class="reference external" href="../blog/2010-08-01-sustainable-development.html">Sustainable
+Development in F/OSS</a></p>
+<hr class="docutils">
+<p>First, we need a program to extract statistics. I used
+<a class="reference external" href="http://gitstats.sourceforge.net/">gitstats</a>, and heartily recommend
+it to others.</p>
+<hr class="docutils">
+<p>Second, we need to know the range of dates to use. I used 6-month
+intervals. I wimped out here -- I'm sure that it's possible to make git
+tell you this automatically, but instead I just skimmed through the logs
+in <tt class="docutils literal">gitk</tt> and manually picked out the first commit in each date range.
+The result is this:</p>
+<pre class="literal-block">
+2005-1  cccee40bb3a13b6c230fa98a8ca61f7c526d5f66
+2005-7  b28d02e3cbb81b050cf4c6bba3260a331d4f7d3f
+2006-1  16b713b9b9616d70c4a1b12506952098c01c5706
+2006-7  eaed6aa8f16502d8159530eaf3ed4d56dbf8fef8
+2007-1  ad33cc4b37628e047e4c8c3b3d42d93cb7525d0f
+2007-7  699feb0fbe8448a94ca5d9de43dd126d34fd5341
+2008-1  57221c9ee7a758169c9e2fe4805f0ed3598f50d5
+2008-7  b57384106e4e54f4a22a93af88204f86f37d078b
+2009-1  015ac40ff340255ea4ac76fbe5b5eab3c2a40adc
+2009-7  bee6f18b78c002187d9197b6a334ff61c13a4ef9
+2010-1  9429c53e9e4a1f88b32f4897fdc261ed9bd6684f
+2010-7  ec376e079a0dc586ba3fe17113993525f2be69c2
+</pre>
+<p>(I used a tab between the columns, but that won't come out in the html)</p>
+<hr class="docutils">
+<p>Third, I ran the below script to run gitstats for each range of
+dates/commits:</p>
+<pre class="literal-block">
+# make-gitstats.py
+# public domain if that matters; this is utterly trivial
+
+#!/usr/bin/env python
+import sys, os
+
+GITDIR = "$HOME/src/lilypond"
+COMMITS_FILENAME = "lily-dates.txt"
+
+commits = open(COMMITS_FILENAME).readlines()
+
+def getRange(begin, end):
+        out_filename = begin.split('\t')[0] + '_' + end.split('\t')[0]
+        commit_begin = begin.split('\t')[1].rstrip()
+        commit_end   = end.split('\t')[1].rstrip()
+        cmd = "gitstats"
+        cmd += ' -c commit_begin='+commit_begin
+        cmd += ' -c commit_end='+commit_end
+        cmd += ' ' + GITDIR
+        cmd += ' ' + out_filename
+        print cmd
+        os.system(cmd)
+
+# whole range
+getRange(commits[0], commits[-1])
+
+for i in range(len(commits)-1):
+        getRange( commits[i], commits[i+1] )
+</pre>
+<hr class="docutils">
+<p>Fourth, I wimped out again. The previous step created a bunch of
+directories containing info about each date range nicely formatted in
+html. Instead of grabbing the info I wanted directly with python, I
+copied the table of authors (from the web page) into openoffice. I split
+up the commit field (which contains both the raw number, and the
+percentage of the total like "<tt class="docutils literal">3656(26.20%)</tt>") with:</p>
+<pre class="literal-block">
+=VALUE(LEFT(B2;FIND("(";B2)-2))
+</pre>
+<p>Then I copied the columns around and exported it as a csv, ending up
+with something like this:</p>
+<pre class="literal-block">
+"2005-1 to 2005-7"   "2005-7 to 2006-1"   ...
+626                  517                  ...
+237                  77                   ...
+123                  67                   ...
+</pre>
+<p>(again, there might be whitespace tab/space issues in this display)</p>
+<hr class="docutils">
+<p>Fifth, it's <tt class="docutils literal">gnuplot</tt> time! Again, I could automate more of this file,
+but it worked for my purposes.</p>
+<pre class="literal-block">
+# combined.plot
+set term png enhanced font
+'/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans.ttf' 12
+
+set title "Git commits to LilyPond, 2005 - 2010 in 6 month
+intervals"
+set xlabel "Rank of developer"
+set ylabel "Number of commits"
+
+set key autotitle columnhead
+set yrange [6:]
+#set xrange [:20]
+
+set style line 1  lt 1  lw 2 lc rgb "#0000ff"
+set style line 2  lt 2  lw 2 lc rgb "#0033cc"
+set style line 3  lt 3  lw 2 lc rgb "#006699"
+set style line 4  lt 4  lw 2 lc rgb "#009966"
+set style line 5  lt 5  lw 2 lc rgb "#00cc33"
+set style line 6  lt 6  lw 2 lc rgb "#00ff00"
+set style line 7  lt 7  lw 2 lc rgb "#33cc00"
+set style line 8  lt 8  lw 2 lc rgb "#669900"
+set style line 9  lt 9  lw 2 lc rgb "#996600"
+set style line 10 lt 10 lw 2 lc rgb "#cc3300"
+set style line 11 lt 11 lw 2 lc rgb "#ff0000"
+
+set output "combined-normal.png"
+plot "combined.csv" using 1 ls 1 w lines, \
+        "combined.csv" using 2 ls 2 w lines, \
+        "combined.csv" using 3 ls 3 w lines, \
+        "combined.csv" using 4 ls 4 w lines, \
+        "combined.csv" using 5 ls 5 w lines, \
+        "combined.csv" using 6 ls 6 w lines, \
+        "combined.csv" using 7 ls 7 w lines, \
+        "combined.csv" using 8 ls 8 w lines, \
+        "combined.csv" using 9 ls 9 w lines, \
+        "combined.csv" using 10 ls 10 w lines, \
+        "combined.csv" using 11 ls 11 w lines
+
+set output "combined-log.png"
+set log y
+plot "combined.csv" using 1 ls 1 w lines, \
+        "combined.csv" using 2 ls 2 w lines, \
+        "combined.csv" using 3 ls 3 w lines, \
+        "combined.csv" using 4 ls 4 w lines, \
+        "combined.csv" using 5 ls 5 w lines, \
+        "combined.csv" using 6 ls 6 w lines, \
+        "combined.csv" using 7 ls 7 w lines, \
+        "combined.csv" using 8 ls 8 w lines, \
+        "combined.csv" using 9 ls 9 w lines, \
+        "combined.csv" using 10 ls 10 w lines, \
+        "combined.csv" using 11 ls 11 w lines
+</pre>
+<hr class="docutils">
+<p>If you want to use any of this, go ahead! I declare it to be public
+domain.</p>
+<p><strong>Caution</strong>: as I mentioned in my talk, the raw number of commits per
+developer is a vague measure. It doesn't include emails (either
+organizing a project, reviewing patches, etc), amount of work behind
+each patch, etc. For example, in the range of Jan 2010 - July 2010, I'd
+say that the two programmers who did the most work (both in terms of the
+bugfixes and new features they wrote, but also in terms of reviewing
+other people's patches) were #5 and #6 on the "commits per developer"
+list.</p>
+<p>I've considered starting up a project to give a better measure of a
+project's "health" -- taking into account emails, bugs fixed, reviewing
+activity... in the case of lilypond, all that info wouldn't be too hard
+to gather, and it would certainly be a fun task to develop algorithms to
+deal with that data.</p>
+<p>However, if I want my PhD to be finished ASAP -- and I definitely <em>do</em>
+want this done so that I can start on my postdoc life -- then I really
+can't afford to branch off onto that type of work. At least, not alone.
+If anybody else is interested in working on this project, I'd definitely
+considering on that team. :)</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/bunnies.html" rel="tag">bunnies</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../blog/2010-08-01-sustainable-development.html" rel="prev" title="Sustainable Development in F/OSS">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../blog/2010-08-06-tempo-game.html" rel="next" title="Tempo Game">Next post</a>
+            </li>
+        </ul></nav></aside></article></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

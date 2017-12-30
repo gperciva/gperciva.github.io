@@ -1,0 +1,132 @@
+/* main setup */
+
+#header {
+	background: lightblue;
+}
+
+#main {
+	background: green;
+}
+
+#menu ul li {
+	display: inline-block;
+	margin-right: 1.5em;
+}
+
+header h1 {
+	display: inline-block;
+}
+
+header nav {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: inline-flex;
+
+	-webkit-flex-flow: row nowrap;
+	justify-content: space-around;
+}
+
+nav ul,
+{
+	list-style: none;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+nav li {
+	text-align: center;
+	flex: 1 0 100%;
+}
+/*
+nav li:nth-child(1), nav li:nth-child(2) {
+	background-color: darkgreen;
+}
+*/
+
+/* content setup */
+
+.e-content div {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+div.overview {
+	flex: 1 100% !important;
+	background-color: #f3f3f7;
+}
+
+div.postindex article {
+	margin: 1em 0;
+	padding: 0.5em;
+
+	background-color: #f3f3f3;
+}
+
+article.post-text.storypage > div.e-content.entry-content > div > div.section {
+	display: block;
+	flex: 1 0 10em;
+	min-width: 45%;
+
+	background-color: #f3f3f3;
+	border: 1px solid grey;
+	margin: 1em;
+	padding: 0.5rem;
+
+	border-radius: 0.5em;
+}
+
+article.post-text.storypage .section h2 {
+/*
+	display: inline-block;
+*/
+	text-align: center;
+	margin-top: -0.5rem;
+	margin-left: -0.5rem;
+	margin-right: -0.5rem;
+	background-color: #ccccf3;
+	border-bottom: 1px solid grey;
+
+	border-radius: 0.5rem 0.5rem 0 0;
+/*
+	padding: 0.25em 0.5em 0.25em 0.5em;
+*/
+}
+
+.e-content div.line-block {
+	flex: 0 0 100%;
+}
+
+.e-content.entry-content > div > div.section {
+	display: block;
+}
+
+.e-content.entry-content blockquote {
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	flex: 0 0 100%;
+}
+
+.e-content.entry-content blockquote p {
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+}
+
+.e-content.entry-content pre {
+	flex: 0 0 100%;
+}
+
+.e-content li {
+	margin: 0.5em 0;
+}
+
+ul.postlist li time {
+	margin-right: 1em;
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Tempo experiment analysis: the good | Living Without the Bunnies</title>
+<link href="../assets/css/rst.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/code.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/theme.css" rel="stylesheet" type="text/css">
+<link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="../rss.xml">
+<link rel="canonical" href="http://percival-music.ca/blog/2010-10-08-tempo-good.html">
+<!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><meta name="author" content="Graham Percival">
+<link rel="prev" href="../blog/2010-10-02-tempo-over.html" title="Tempo experiment over" type="text/html">
+<link rel="next" href="../blog/2010-10-09-tempo-bad.html" title="Tempo experiment analysis: the bad" type="text/html">
+<meta property="og:site_name" content="Living Without the Bunnies">
+<meta property="og:title" content="Tempo experiment analysis: the good">
+<meta property="og:url" content="http://percival-music.ca/blog/2010-10-08-tempo-good.html">
+<meta property="og:description" content="Sorry for the delay for this analysis; sickness and wanting to have
+everything finished interfered. It's not completely finished, but I have
+enough interesting things to discuss for now. This blog pos">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2010-10-08T23:42:00Z">
+<meta property="article:tag" content="bunnies">
+</head>
+<body>
+<a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+    <div id="container">
+         
+    <header id="header"><h1 id="brand"><a href="http://percival-music.ca/" title="Living Without the Bunnies" rel="home">
+
+        <span id="blog-title">Living Without the Bunnies</span>
+    </a></h1>
+
+        
+
+        
+    <nav id="menu"><ul>
+<li><a href="../blog/">Blog</a></li>
+                <li><a href="../blog/archive.html">Archives</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../about.html">About</a></li>
+    
+    
+    </ul></nav></header><main id="content"><article class="post-text h-entry hentry postpage" itemscope="itemscope" itemtype="http://schema.org/Article"><header><h2 class="p-name entry-title" itemprop="headline name"><a href="../blog/2010-10-08-tempo-good.html" class="u-url">Tempo experiment analysis: the good</a></h2>
+
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2010-10-08-tempo-good.html" rel="bookmark"><time class="published dt-published" datetime="2010-10-08T23:42:00Z" itemprop="datePublished" title="2010-10-08 23:42">2010-10-08 23:42</time></a></p>
+            
+
+        </div>
+        
+
+    </header><div class="e-content entry-content" itemprop="articleBody text">
+    <div>
+<p>Sorry for the delay for this analysis; sickness and wanting to have
+everything finished interfered. It's not completely finished, but I have
+enough interesting things to discuss for now. This blog post deals with
+things that went well.</p>
+<p>The best thing that happened was that you guys actually played the game!
+:) I got much, much more data than I was expecting -- in the end, there
+were 1041 tapping games played, with a total of 14,342 taps. I was
+hoping for 200 or so tap-games, so this gives me five times as much data
+as I was hoping for in my wildest dreams!</p>
+<p>Of those tap-games, 882 resulted in the player accepting the computer's
+tempo, 89 resulted in the player giving their own tempo, and 70 resulted
+in a disagreement about tempo but no other tempo given. 635 tap-games
+used an audio metronome, while 361 used a visual metronome, and 45 used
+no metronome at all.</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>Most tempi (plural of "tempo"; no, it's not "tempos") were very close to
+the metronome -- looking at tap-games with user-agreed or user-specified
+tempo, and excluding tap-games with no metronome, we find that 82.1% of
+them had a difference of less than 5%, and 41.7% exercise had a
+difference of less than 1%.</p>
+<div class="line-block">
+<div class="line"><img alt="image0" src="http://percival-music.ca/blogfiles/tempo-delta-moderate.png" style="width: 100.0%;"></div>
+</div>
+<p>The distribution of tap-games played per level shows an unsurprising
+majority of level 1, but a surprising amount of interest in level 9. I'm
+guessing that this is because the game was too easy (see next blog
+post).</p>
+<div class="line-block">
+<div class="line"><img alt="image1" src="http://percival-music.ca/blogfiles/levels-all.png" style="width: 100.0%;"></div>
+</div>
+<p>Returning to main point of this experiment, 560 tap-games have their
+tempo detected trivially with linear regression via ordinary least
+squares. The player tapped the correct rhythm, with no note more than a
+tenth of a quarter-note beat away from the strictly-metronomic position.
+I call those the "boring" tap-games... I mean, if the obvious solution
+works, then it's no fun! :)</p>
+<p>Happily, this leaves 481 "interesting" tap-games which require more
+complication solutions. I'm still working on this part; my latest
+algorithm correctly identifies most of the tempi, but there's still a
+bunch left, and I think my current approach isn't going to pan out. I
+need to take a break for a day and return to it with a fresh mind.</p>
+<p>Oh, on the topic of "boring" exercises -- judging from the data I've
+been looking at manually, I estimate that approximately two thirds of
+the tap-games can be handled with simple linear regression. The missing
+hundred tap-games (between "two thirds of 1041" and the "560" mentioned
+above) come from wanting to avoid false positives. I'm being paranoid
+about false positives; I would rather have the computer spend more time
+analyzing the taps instead of producing an incorrect tempo estimate.</p>
+<p>On to <a class="reference external" href="../blog/2010-10-09-tempo-bad.html">the bad</a>, or even <a class="reference external" href="../blog/2010-10-10-tempo-ugly.html">the
+ugly</a>.</p>
+</div>
+    </div>
+    <aside class="postpromonav"><nav><ul itemprop="keywords" class="tags">
+<li><a class="tag p-category" href="../categories/bunnies.html" rel="tag">bunnies</a></li>
+        </ul>
+<ul class="pager hidden-print">
+<li class="previous">
+                <a href="../blog/2010-10-02-tempo-over.html" rel="prev" title="Tempo experiment over">Previous post</a>
+            </li>
+            <li class="next">
+                <a href="../blog/2010-10-09-tempo-bad.html" rel="next" title="Tempo experiment analysis: the bad">Next post</a>
+            </li>
+        </ul></nav></aside></article></main>
+</div>
+    
+    
+<!-- mao -->
+</body>
+</html>

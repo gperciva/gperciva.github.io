@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Living Without the Bunnies (Posts about bunnies)</title><link>http://percival-music.ca/</link><description></description><atom:link href="http://percival-music.ca/categories/bunnies.xml" rel="self" type="application/rss+xml"></atom:link><language>en</language><lastBuildDate>Sat, 30 Dec 2017 04:18:24 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Revised website</title><link>http://percival-music.ca/blog/2017-12-29-revised-website.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;More than five years since the last update!  Yikes.&lt;/p&gt;
+&lt;p&gt;What have I been up to?  Well, I finished my PhD in May 2013, did
+two post-doctoral contracts (in Singapore and Japan), then gave up
+on academia and returned to Vancouver in May 2015 to work for my
+brother's company, &lt;a class="reference external" href="https://tarsnap.com"&gt;Tarsnap Backup Inc&lt;/a&gt;.
+Since then, my main focus has been my health.&lt;/p&gt;
+&lt;p&gt;I've made significant changes to my diet, started practicing yoga,
+lifting weights, and get at least 7 hours of cardio per week.  I
+fell in love with ballroom and swing dancing, and these days I
+spend more time dancing than I do on music!&lt;/p&gt;
+&lt;p&gt;Speaking of music, my violin-playing has improved dramatically --
+I've played in all four (main) string sections of the
+&lt;a class="reference external" href="http://westcoastsymphony.ca/"&gt;West Coast Symphony Orchestra&lt;/a&gt;
+(the best non-professional orchestra in Vancouver), and plan to
+play in each section at least once per season.  I'm teaching
+violin and cello, and coaching a string quartet.  I've started
+composing music again (after a gap of a decade), primarily for my
+students.&lt;/p&gt;
+&lt;p&gt;It's not all good news, though.  I'm still struggling with
+perfection-fueled procrastination, a la
+"&lt;a class="reference external" href="https://en.wikipedia.org/wiki/Perfect_is_the_enemy_of_good"&gt;Perfect is the enemy of good&lt;/a&gt;").
+This website is a perfect example of it: 5 years ago, I decided
+that I should switch to a static website generator and stop
+writing in raw HTML.  That prompted an incredible number of
+hesitations:  Which generator should I use?  Which markup
+language?  How can I tweak the markup and/or generator to produce
+the HTML I want?  Can I add a CSS file to fix stuff, or must I
+edit the template's default CSS, or must I edit the template
+itself?  Which web hosting provider should I use?  Does it have
+HTTPS?  etc.&lt;/p&gt;
+&lt;p&gt;I finally said "enough is enough", so I'm going ahead with the
+revised website right now, despite all the remaining problems.  Or
+rather... I said that three days ago.  Even when I started
+removing whole sections of the website (e.g., music, teaching,
+software), it still took me &lt;em&gt;days&lt;/em&gt; to get this out the door!  My
+plan is to make incremental updates to the website, trying to work
+with "blocks of time" rather than "perfect chunks of update".
+I'll pick some weekly time (say, "Wednesday morning before
+teaching"), work on the website, and then upload the latest
+version regardless of whether I'm fully satisfied with it or not.&lt;/p&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2017-12-29-revised-website.html</guid><pubDate>Fri, 29 Dec 2017 20:39:00 GMT</pubDate></item><item><title>Artifastring 2.0</title><link>http://percival-music.ca/blog/2012-11-22-artifastring-2.0.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;After over a year of development, I have released Artifastring 2.0.
+This includes higher-quality output, an incredible amount of
+optimizations (up to 100x realtime), and now has multiple distinct
+instrument sounds: 5 different violins, 2 viola, and 3 cellos.&lt;/div&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="http://percival-music.ca/artifastring/"&gt;http://percival-music.ca/artifastring/&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Most of the speed improvements are thanks to the
+&lt;a class="reference external" href="http://eigen.tuxfamily.org"&gt;Eigen&lt;/a&gt; C++ template library for linear
+algebra. In particular, this enabled me to easily write SIMD code rather
+than using floats.&lt;/p&gt;
+&lt;p&gt;Other bits of interest are the realtime OSC server and an interface for
+the &lt;a class="reference external" href="http://charlie-roberts.com/Control/"&gt;Control (OSC)&lt;/a&gt; app. Users
+with iOS or Android tablets can control the physical modelling with
+their fingers! I'm hoping to have a video in a few days, although I
+still need to find somebody with a video camera. Before you get too
+excited, I should add that this is a proof-of-concept of the
+communication between tablet and computer; I haven't put any thought
+towards the actual GUI or ease of control. My focus is on finishing my
+thesis, so if anybody is interested in making better interfaces, go
+nuts!&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;There's sure to be rough edges left in this release. I'm trying to force
+myself to accept "the perfect is the enemy of the good". I'm having huge
+problems writing my thesis because whenever I write down what I've done,
+I think of possible flaws, which immediately prompts me to spend a week
+or two performing experiments which justify what I've done (or else
+demonstrate a real problem, in which case I spend another week or two
+changing even more!).&lt;/p&gt;
+&lt;p&gt;With that in mind, I expect a 2.2 release to happen within the next
+month or two. Of course, if more people test the 2.0 version and report
+problems, I'll have more confidence (and more motivation!) to get the
+2.2 release out there.&lt;/p&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2012-11-22-artifastring-2.0.html</guid><pubDate>Thu, 22 Nov 2012 01:06:00 GMT</pubDate></item><item><title>Ubuntu ssh agent admitted failure</title><link>http://percival-music.ca/blog/2011-08-28-ubuntu-ssh.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;Ubuntu 10.04 LTS has a serious bug in ssh/ssh-agent/something which
+causes it to fail to log in to a system even if you have your ssh
+identies set up. This caused me an hour of panic before I found a
+workaround. I'm putting it here in case somebody else has the same
+problem and google finds this for them. (tl;dr: use
+&lt;tt class="docutils literal"&gt;SSH_AUTH_SOCK=0sshfoo.bar.baz&lt;/tt&gt; )&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;I swap between two laptops and a desktop regularly. I have a shared
+dotfiles git repository, so my normal settings are fine -- but that
+won't work for stuff like email passwords, or even email. My current
+setup is to use an sd card for personal stuff. (yes, my stuff is in an
+encrypted loop-back partition on that card; I'm not crazy!)&lt;/p&gt;
+&lt;p&gt;A few days ago (just after returning to Glasgow), I started having read
+errors on the card. This was particularly sucky because although I'd
+bought a new 16gb card while in Vancouver, I hadn't gotten around to
+carrying that new card, so I was using my old 8gb card. I was planning
+on doing it "soon", but I definitely started to kick myself for not
+getting it set up sooner.&lt;/p&gt;
+&lt;p&gt;That said, it was only about 24 hours since I'd made a backup of the sd
+card anyway, and there hadn't been any truly important emails in that
+time. (I know the story should go "... but I didn't mind, because I'm
+using my brother's tarsnap backup service", but it was actually about 3
+days since I'd backed up in tarsnap)&lt;/p&gt;
+&lt;p&gt;Fortunately, when I put the card in a different laptop, it read it just
+fine. I copied stuff over, checked that things seemed ok, and then
+started using the new card regularly. Everything seemed fine for a day
+or two, when I discovered that I couldn't log in to various servers. At
+this point, I turned to tarsnap to get a backup of my &lt;tt class="docutils literal"&gt;ssh&lt;/tt&gt; directory,
+thinking that I'd gotten some freaky bitrot in my private key but
+nowhere else. No joy.&lt;/p&gt;
+&lt;p&gt;But wait, it gets worse! Take a look at this:&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+gperciva@gperciva-desktop:~$ ssh -v strauss.elec.gla.ac.uk
+OpenSSH_5.3p1 Debian-3ubuntu7, OpenSSL 0.9.8k 25 Mar 2009
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: Applying options for *
+debug1: Connecting to strauss.elec.gla.ac.uk [130.209.179.98] port 22.
+...
+debug1: Offering public key: /home/gperciva/.ssh/id_dsa
+debug1: Server accepts key: pkalg ssh-dss blen 817
+Agent admitted failure to sign using the key.
+&lt;/pre&gt;
+&lt;p&gt;LOLwut? Server accepts key, agent admitted failure to sign in using the
+key?!&lt;/p&gt;
+&lt;p&gt;After a bit of stumbling around, I found a &lt;a class="reference external" href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786"&gt;ssh bug
+report&lt;/a&gt;
+from 2008 in the ubuntu database. Apparently you can work around it by
+setting &lt;tt class="docutils literal"&gt;SSH_AUTH_SOCK=0&lt;/tt&gt;. You can also do some weird stuff with
+something called "seahorse", but I think I'll just export the variable.&lt;/p&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2011-08-28-ubuntu-ssh.html</guid><pubDate>Sun, 28 Aug 2011 09:09:00 GMT</pubDate></item><item><title>Vampire Rabbit</title><link>http://percival-music.ca/blog/2011-08-23-vampire-rabbit.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;The is the story of the Vampire Rabbit, and other bits and pieces from
+my European vacation from May 2 to 23. Yes, this is a bit overdue.&lt;/p&gt;
+&lt;p&gt;Overall, the timing of the first half was unfortunate -- I received the
+reviewer's comments about my Vivi paper just before leaving on the
+ferry. This meant that I spent the nights (after my traveling companion
+had fallen asleep) making typographical corrections, hunting up more
+references, and rewriting paragraphs to avoid misunderstandings. Now,
+there's a long Percival tradition of doing academic work while on
+vacation... but I had hoped that I'd have another 2-5 years before I
+fully embraced that life.&lt;/p&gt;
+&lt;p&gt;Processing the photos took a &lt;em&gt;lot&lt;/em&gt; longer than I was expecting, and even
+then, there's still a lot of mistakes in them. Mispellings (I had at
+least two different ways of spelling "Ben Nevis"!), typos, wrong words,
+etc. But I've already spent far too long playing with these, so I'm
+reminding myself that "the perfect is the enemy of the good" and moving
+on. I'll only make a few additional comments to the photos.&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="scotland"&gt;
+&lt;h2&gt;Scotland&lt;/h2&gt;
+&lt;p&gt;Photos:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011Glasgow"&gt;Glasgow&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011Edinburgh"&gt;Edinburgh&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011Highlands"&gt;Highlands&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011NewcastleSea"&gt;Newcastle and North
+sea&lt;/a&gt;
+(not scotland, but it fits in this section)&lt;/blockquote&gt;
+&lt;p&gt;The trip began in Glasgow; my friend arrived from Vancouver. I only got
+lost once while looking for the airport bus to go out and get her, but
+I'd budgeted sufficient "buffer time" so that I wasn't late. The idea
+was that we'd spend a few days in an English-speaking country while she
+got over jetlag.&lt;/p&gt;
+&lt;p&gt;We began by walking all over Glasgow (particularly the West End, where
+Hogwarts is). Lest anybody doubt that I know how to show a girl a good
+time, the necropolis was a big hit. Direct quote: "This is so cool!".&lt;/p&gt;
+&lt;p&gt;Next day we went to Edinburgh, saw the castle, climbed Arthur's Peak,
+etc. On the way back to the train station, I wanted to find a washroom,
+and we ended up in the Scottish parliament debate chamber. True story! I
+saw a sign for the washroom, so we went into the building, and then
+security guards kept on noticing that I was looking around and seemed a
+bit lost, and they all said "aye, go on around the corner / up the
+stairs / through the doors", and there we were.&lt;/p&gt;
+&lt;p&gt;Driving tour of the Highlands; from Stirling to Fort Williams to Oban to
+Stirling again. Saw hills, ocean, sheep.&lt;/p&gt;
+&lt;p&gt;Final day in Glasgow: sort out any last-minute stuff for the rest of the
+trip. I bought a new travel shaver because my current one had really
+dull blades; new shaver was £37 while replacement blades were £44.
+Economy: 1, environment: 0? We also saw a junior (12-17 years old?)
+chamber music concert. Intonation was better than we expected, but
+dynamics and range of expression were worse.&lt;/p&gt;
+&lt;p&gt;Then we took the train to Newcastle-upon-Tyne. Saw the &lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011NewcastleSea#5635045884068735026"&gt;VAMPIRE
+RABBIT&lt;/a&gt;.
+Took the DHS overnight ferry to Amsterdam; an unexpectedly swanky trip.
+Highly recommended! It was much better than taking an airplane for 2
+hours (plus all the travel to/from airport, security, waiting at gates,
+etc).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="amsterdam"&gt;
+&lt;h2&gt;Amsterdam&lt;/h2&gt;
+&lt;p&gt;Photos:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011AmsterdamCity"&gt;Amsterdam city
+pictures&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011AmsterdamMonuments"&gt;Amsterdam
+monuments&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011Kukenhof"&gt;Kukenhof flower
+market&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011Leiden"&gt;Leiden&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011AmsterdamZoo"&gt;Amsterdam
+zoo&lt;/a&gt;&lt;/blockquote&gt;
+&lt;p&gt;Amsterdam, city of bicycles. Deservedly famous for a huge fraction of
+the population of the population cycling as their main form of
+transportation. Also infamously famous for their red light district,
+which my travelling companion insisted on us visiting. (also infamously
+famous for marijuana, but since we've from Vancouver that wasn't
+particularly notable)&lt;/p&gt;
+&lt;p&gt;We spent an hour trying to find the red light district. As we were
+nearing giving up, we found a McDonalds and Burger King right next to
+each other, with red neon signs. We saw the red lights! ... ok, that
+wasn't the real place, but I was starting to doubt that it really
+existed. We saw five "chinese message" stores. They honestly did have
+massage chairs, and in one store there were people doing stuff with
+somebody's feet... but I really cannot believe that Amsterdam has such a
+huge market for chinese massages that it makes economic sense to have so
+many stores in such a small area. I suspected that "chinese massage" was
+a euphamism, but my companion insisted that she should be seeing "women
+in windows" with red lights.&lt;/p&gt;
+&lt;p&gt;After once again checking our two maps, cross-referencing them with a
+printed guide-book, checking the compass, and walking another 15
+minutes, we found the red light district. This time, there was no doubt.
+It was about 9.30, so getting dark, by the way.&lt;/p&gt;
+&lt;p&gt;There really were red lights. I'd thought that "red light district" was
+just a phrase, but no -- there were individual "store fronts", lit with
+a red neon florescent bulb above the door and window. And in the window
+(actually, often the door), was a woman in "underwear". Often shaking or
+grinding, sometimes tapping the door to attract attention. It was...
+well, the first word that comes to mind is "tacky". Certainly not sexy!&lt;/p&gt;
+&lt;p&gt;That said, there was one "store front" which attracted my attention --
+it did not have a woman cavorting about. Instead, there was a blond
+woman sitting on a bed, wearing glases, and reading a book. I'm fairly
+certain that the glasses were fake and the "intellectual" facade was a
+sham -- but at least somebody was &lt;em&gt;pretending&lt;/em&gt; to be classy. And no, I
+didn't see any women with cat ears. Now *that* would have gotten my
+attention!&lt;/p&gt;
+&lt;p&gt;Note that we didn't make an extensive tour. We passed about half a dozen
+windows on our way into the central red light district, and then we saw
+a group of seniors in a tour group. We followed them for a bit; this
+group was circling a big old chuch smack in the middle of the red light
+district. My travelling companion thought that it really was a church
+tour group, but I pointed out that if they were honestly there to see
+the church, they'd have gone in the daylight, not at night. I mean,
+there were red lights just opposite the street from the chrurch, clearly
+visible from where they were. After circling the church, we stopped
+stalking the senior's travel group, and walked back to our hotel. We
+passed another half dozen windows along the way. No, we didn't stop for
+any of the live sex shows.&lt;/p&gt;
+&lt;p&gt;All in all, it was more weird than anything else. I didn't feel unsafe
+-- granted we left the area before 10pm, but the whole place still felt
+quite regulated and well-policed. And I certainly approve of having a
+safe place for this kind of thing! But it's not quite my scene, just
+like a football match isn't my scene. (I'm sure that the Amsterdam red
+light district is much safer than a British football match, though!)&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;The next day we saw a bunch of museums, and stopped for dinner at a
+"bergermeester", where I had a "meester biefburger" with "dragonmayo".
+It was absolutely gigantic (even by North American standards!), and I
+wasn't certain if I would eat it or if it would eat me.&lt;/p&gt;
+&lt;p&gt;Went to Kukenhof, saw flowers. Not being female, that's about all I can
+say about the place. :) After that, we went to the Concertgebouw. Saw a
+string quartet, not impressed. They played Haydn like Haydn (clean,
+together, careful, fussy, uninspired). The played Beethoven like Haydn.
+They played Debussy like Beethoven (some expression, moderate rubato,
+taking some risks, not always together but that's ok). No visible
+communication between the players; I suspect the Haydn and Beethoven was
+really together because they'd played it a lot and knew exactly what
+everybody was going to do.&lt;/p&gt;
+&lt;p&gt;Saw the zoo. Protip: reserve a whole day. We could only spend the
+morning there due to train ticket reservations, and regretted it.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="brussels"&gt;
+&lt;h2&gt;Brussels&lt;/h2&gt;
+&lt;p&gt;Photos:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011BrusselsCity"&gt;Brussels
+city&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011BrusselsMonuments"&gt;Brussels
+monuments&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011Bruges"&gt;Bruges&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011Ghent"&gt;Ghent&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011BrusselsMuseums"&gt;Brussels
+museums&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011Antwerp"&gt;Antwerp&lt;/a&gt;&lt;/blockquote&gt;
+&lt;p&gt;Brussels wasn't as nice as Amsterdam. It's famous for fries (with
+mayonaise), but the two or three places we tried fries weren't
+particularly special. I mean, they were better than McDonalds fries, but
+that doesn't exactly say much.&lt;/p&gt;
+&lt;p&gt;Saw the Musical Instrument Museum. That was neat, and they even had a
+bunch of old electronic instruments in the basement! That was a very
+nice touch.&lt;/p&gt;
+&lt;p&gt;Really fancy churches. Protip: if you want to see art, don't bother with
+museums or galleries; just wander into a nearby church. Doesn't have to
+be a big cathedral; they all have fancy artwork.&lt;/p&gt;
+&lt;p&gt;We did a bunch of short trips to surrounding towns/villages/cities.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="paris"&gt;
+&lt;h2&gt;Paris&lt;/h2&gt;
+&lt;p&gt;Photos:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011ParisCity"&gt;Paris
+city&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011ParisMonuments"&gt;Paris
+monuments&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011ParisMuseums"&gt;Paris
+museums&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011ParisCemeteries"&gt;Paris
+cemeteries&lt;/a&gt;&lt;/blockquote&gt;
+&lt;p&gt;We were met at the train station by one of the LilyPond developers. He
+very kindly showed us around the town, translated, and gave us the
+"inside view" of the city! We got plenty of exercise walking around
+Paris.&lt;/p&gt;
+&lt;p&gt;We met with other LilyPond developers (plus some of their girlfriends --
+that is, the girlfriends of some LilyPond developers. I haven't heard of
+any of them having more than one girlfriend!). It was really neat
+"putting faces to the names".&lt;/p&gt;
+&lt;p&gt;In addition to seeing the big sites, we visited a cemetery. I really
+liked the cemeteries in France when I visited in 1997, so I insisted
+that we go to one this time. Not for any kind of macabre reason, or any
+kind of "omg this famous person is buried here" reason -- I just like
+the fancy graves as pieces of scuplture/architecture.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="south-england"&gt;
+&lt;h2&gt;South England&lt;/h2&gt;
+&lt;p&gt;Photos:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011EnglandDover"&gt;Dover&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011EnglandDriving"&gt;Miscellaneous pictures from driving
+around&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011EnglandRye"&gt;Rye&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011EnglandSteyning"&gt;Steyning&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011EnglandAmberley"&gt;Amberley&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011EnglandSwanage"&gt;Swanage&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011EnglandCorfecastle"&gt;Corfe
+castle&lt;/a&gt;
+&lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011EnglandLondon"&gt;London&lt;/a&gt;&lt;/blockquote&gt;
+&lt;p&gt;We met up with a friend and he drove us around southern England,
+starting from the ferry to Dover. We stopped to admire a few extremely
+picturesque villages and wild ponies, then arrived at the Dorsets area.&lt;/p&gt;
+&lt;p&gt;In the morning we saw the really cool &lt;a class="reference external" href="https://picasaweb.google.com/107782479450604073806/Euro2011EnglandCorfecastle#5641596765992307426"&gt;Durdle
+door&lt;/a&gt;,
+then continued driving around, ending up at London for the night. In the
+morning, we briefly saw the really big tourist stuff (Buckingham palace,
+Westminister Abbey, parliament buildings, big ben, etc).&lt;/p&gt;
+&lt;p&gt;Returning to Glasgow was a pain. I dropped off my companion at Heathrow
+at 14:30, and then took the underground back to London Euston -- only to
+discover that the train had been cancelled due to high winds in the
+Scottish Borders area! Instead, I was to take a train up to Edinburgh
+(from King's Cross), then get a train from Edinburgh to Glasgow. But
+halfway along that trip, we were told that the train would end in
+Newcastle, and we should wait for the next train (which &lt;em&gt;would&lt;/em&gt; be
+continuing up to Edinbrugh).&lt;/p&gt;
+&lt;p&gt;All in all, I only got back to my flat at midnight. It normally takes
+about 5 hours to go from London to Glasgow, not 11.5 hours! But I
+arrived eventually, exhausted but happy.&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Tentative plan for next year: Berlin, Zurich, Vienna, Prague.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2011-08-23-vampire-rabbit.html</guid><pubDate>Tue, 23 Aug 2011 12:25:00 GMT</pubDate></item><item><title>Becoming social</title><link>http://percival-music.ca/blog/2011-07-13-becoming-social.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;Following &lt;a class="reference external" href="http://xkcd.com/918/"&gt;xkcd #918&lt;/a&gt;, I have joined google+.
+What's google+? To paraphrase that brilliant webcomic, "it's like
+facebook, but it's not facebook".&lt;/p&gt;
+&lt;p&gt;That's an important distinction if you have any privacy, moral, or
+pragmatic concerns. Facebook is a bad company. Their "walled garden"
+approach -- in terms of users' private data, as well as applications and
+casual browsing -- does actual harm to the idea of a global internet.
+Even if you have no romantic or philosophical notions of the "flow of
+information", such walled gardens are simply harmful on a practical
+level. When (not if) something unquestionably better than facebook comes
+around, you'll lose a lot of data if you use facebook.&lt;/p&gt;
+&lt;p&gt;(why am I certain that something better than facebook will arrive?
+That's simply the history of computing. Every software project is
+supplanted eventually; thinking that software XYZ is the pinnacle of
+human-computer interaction is the sheerest folly. Something better than
+facebook, something better than google+, something better than mutt or
+vim or python, is always bound to happen. Maybe not in 5 years or 10 or
+20 years, but it &lt;em&gt;will&lt;/em&gt; happen)&lt;/p&gt;
+&lt;p&gt;Anyway, you can "plus me" (if that's the verb we're going to use)
+&lt;a class="reference external" href="https://plus.google.com/?tab=XX#107782479450604073806/about"&gt;here&lt;/a&gt;.
+Invitations available for people I know who want to join.&lt;/p&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2011-07-13-becoming-social.html</guid><pubDate>Wed, 13 Jul 2011 19:40:00 GMT</pubDate></item><item><title>Artifastring 1.6</title><link>http://percival-music.ca/blog/2011-06-27-artifastring-1.6.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;Artifastring 1.6 is now out. This adds a fancier violin model, scripts
+to simplify creating images and video from an .actions file, and a
+switch to the autotools build system.&lt;/div&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="http://percival-music.ca/artifastring/"&gt;http://percival-music.ca/artifastring/&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;There were 44 commits between the release-1.4 and release-1.6 tags, with
+lots more info in the &lt;a class="reference external" href="https://github.com/gperciva/artifastring/commits/master"&gt;git
+changelog&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Hopefully this will be the last Artifastring release before Vivi 1.0
+(within the next week). After that, expect not much in July. August will
+hopefully see Artifastring being expanded to cover cello, viola, and
+maybe even multiple violins. This relies on a Masters project at the
+University of Glasgow, so it's not under my control.&lt;/p&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2011-06-27-artifastring-1.6.html</guid><pubDate>Mon, 27 Jun 2011 20:54:00 GMT</pubDate></item><item><title>ccbeamer 0.2</title><link>http://percival-music.ca/blog/2011-06-26-ccbeamer-0.2.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;I found a &lt;a class="reference external" href="http://blog.hartwork.org/?p=52"&gt;nice set of Creative Commons logos for
+LaTeX&lt;/a&gt;, but they were used with
+&lt;tt class="docutils literal"&gt;\input{cc_beamer}&lt;/tt&gt;. Following advice in a comment at that blog, I've
+turned them into a LaTeX package. Following the spirit of open source --
+not to mention the CC-SA license itself -- here's the source code:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;a class="reference external" href="http://percival-music.ca/blogfiles/ccbeamer-0.2.zip"&gt;ccbeamer-0.2.zip&lt;/a&gt;&lt;/blockquote&gt;
+&lt;p&gt;Note that although the hartwork blog has a general "CC-no derivative
+works, unless otherwise expressly stated", the actual zip file states
+that it is under CC-SA 3.0.&lt;/p&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2011-06-26-ccbeamer-0.2.html</guid><pubDate>Sun, 26 Jun 2011 19:54:00 GMT</pubDate></item><item><title>LilyPond 2.14 is out</title><link>http://percival-music.ca/blog/2011-06-11-lilypond-2.14.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;I'm happy to announce the release of GNU LilyPond 2.14. LilyPond is a
+music engraving program, devoted to producing the highest-quality sheet
+music possible. It brings the aesthetics of traditionally engraved music
+to computer printouts. Many improvements have been made in the past two
+and a half years since the previous main stable version. (yes, that's a
+long time between stable versions!)&lt;/p&gt;
+&lt;div class="section" id="lilypond-is-doing-great-lilypond-is-headed-for-disaster"&gt;
+&lt;h2&gt;LilyPond is doing great! LilyPond is headed for disaster!&lt;/h2&gt;
+&lt;p&gt;On one hand, we're doing great. The new stable version 2.14.0 is finally
+out, we've finally started the &lt;a class="reference external" href="http://lilypond.org/~graham/gop/"&gt;Grand Organization
+Project&lt;/a&gt; to resolve various
+administrative problems, and there are no huge problems which will stop
+us from releasing 2.16.0 in a few months.&lt;/p&gt;
+&lt;p&gt;On the other hand, we still have far too many tasks concentrated in far
+too few people. This is not healthy, both for the individuals doing the
+work, but also for the project as a whole.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="sustainable-development-in-software-projects"&gt;
+&lt;h2&gt;"Sustainable development" in software projects&lt;/h2&gt;
+&lt;p&gt;Every person will leave the LilyPond project sooner or later. Our lives
+change, our hobbies shift, and unfortunately our health and lifespans
+are not infinite. What would happen if, for example, I decided that my
+PhD thesis and future career were more important than LilyPond and that
+I should drop out the project?&lt;/p&gt;
+&lt;p&gt;(this is not an idle question; I honestly &lt;em&gt;should&lt;/em&gt; quit LilyPond. Some
+open-source volunteering would still be good for my career, but it would
+be much more benefitial for me to spend that time on
+&lt;a class="reference external" href="http://marsyas.info/"&gt;Marsyas&lt;/a&gt;,
+&lt;a class="reference external" href="http://chuck.cs.princeton.edu/"&gt;ChucK&lt;/a&gt;, or even
+&lt;a class="reference external" href="https://ccrma.stanford.edu/software/stk/"&gt;STK&lt;/a&gt; instead. Those
+project are much more aligned with my research and potential
+tenure-track jobs, and I would learn much more by working on them
+instead of LilyPond.)&lt;/p&gt;
+&lt;p&gt;Such problems are charmingly referred to a project's &lt;a class="reference external" href="http://en.wikipedia.org/wiki/Bus_factor"&gt;Bus
+factor&lt;/a&gt;: how many people
+would need to be hit by a bus before the project falls into disarray?
+LilyPond has a quite low bus factor -- losing as few as three people
+would cause massive problems.&lt;/p&gt;
+&lt;p&gt;I gave a
+&lt;a class="reference external" href="http://percival-music.ca/blog/2010-08-01-sustainable-development.html"&gt;presentation&lt;/a&gt;
+at RMLL 2010 about this last year, and I was reminded of this by a
+recent &lt;a class="reference external" href="http://blogs.gnome.org/bolsh/2011/05/31/effective-mentoring-programs/"&gt;discussion about mentoring
+efforts&lt;/a&gt;
+by a gnome developer looking at the approximate 25% success rate (over a
+variety of projects, including LilyPond).&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="decentralization"&gt;
+&lt;h2&gt;Decentralization&lt;/h2&gt;
+&lt;p&gt;A low "bus factor" means that work (or knowledge or power) is highly
+concentrated in a few people. It's much better for the project if
+work/knowledge/power is distributed more evenly -- losing one person
+will cause fewer problems.&lt;/p&gt;
+&lt;p&gt;There are other benefits to decentralization, of course. A lower
+workload on "central" people will lessen burn-out, which may encourage
+them to stick around for longer. That can, in turn, lessen the workload
+on other people: there are many cases where an "old-timer" can make a
+few suggestions in a 5-minute email which save a new contributor
+literally hours of work and frustration. Everybody wins!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="dangers-of-burn-out"&gt;
+&lt;h2&gt;Dangers of burn-out&lt;/h2&gt;
+&lt;p&gt;I'm (in)famous on the LilyPond mailing lists for arguing against new
+proposals. "We don't have the resources / nice idea, but wait until... /
+you can do that with a user .ly file / etc".&lt;/p&gt;
+&lt;p&gt;In some cases this is due to my subscribing in a certain philosophy of
+design: &lt;em&gt;Il semble que la perfection soit atteinte non quand il n'y a
+plus rien à ajouter, mais quand il n'y a plus rien à retrancher.&lt;/em&gt;
+(perfection is finally attained not when there is no longer anything to
+add, but when there is no longer anything to take away; from &lt;a class="reference external" href="http://en.wikiquote.org/wiki/Antoine_de_Saint_Exup%C3%A9ry"&gt;quotes
+from Antoine de Sainte
+Exupéry&lt;/a&gt;).
+A similar idea was mentioned by Steve Jobs in a &lt;a class="reference external" href="http://blogs.forbes.com/carminegallo/2011/05/16/steve-jobs-get-rid-of-the-crappy-stuff/"&gt;recent
+interview&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+People think focus means saying yes to the thing you've got to focus
+on. But that's not what it means at all. It means saying no to the
+hundred other good ideas that there are. You have to pick carefully.
+I'm actually as proud of the things we haven’t done as the things I
+have done. Innovation is saying 'no' to 1,000 things.&lt;/blockquote&gt;
+&lt;p&gt;But the other part is that I simply don't want more work. Every single
+time that somebody comes up to me with an excited new idea, it breaks my
+heart because my first thought is "oh boy, now I need to express polite
+enthusiasm". It doesn't matter if it's over email, in a chat, in a
+meeting, or in a private conversation. Doesn't matter if it's from a
+longtime developer or an unknown user. Doesn't matter if I think it's a
+brilliant idea, an obvious but useful improvement, or a pie-in-the-sky
+ludicrous concept. My first thought is always the same: "bleh, more
+work".&lt;/p&gt;
+&lt;p&gt;At the moment, I'm committed to doing 10 hours of LilyPond work per
+week. I've "saved up" a few hours from the previous two months
+(including my vacation) because I knew that I'd be busier after 2.14
+came out -- at the time of this writing, I have 12 hours of LilyPond
+time left. Each Monday morning, I add 10 hours to that figure. By my
+estimation, only considering the published &lt;a class="reference external" href="http://lilypond.org/doc/v2.13/Documentation/contributor/grand-organization-project-_0028gop_0029"&gt;Grand Organization
+Project&lt;/a&gt;
+and &lt;a class="reference external" href="http://lilypond.org/doc/v2.13/Documentation/contributor/grand-lilypond-input-syntax-standardization-_0028gliss_0029"&gt;Grand LilyPond Input Syntax
+Standardization&lt;/a&gt;
+backlogs, I won't be able to do make any LilyPond bugfixes or new
+features of my own until the end of 2011. My entire time will be spent
+organizing and helping other people to do work.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="you-can-help"&gt;
+&lt;h2&gt;You can help&lt;/h2&gt;
+&lt;p&gt;Get involved! Anything that makes LilyPond less centralized will help.&lt;/p&gt;
+&lt;p&gt;Even if it has nothing to do with me personally, there will probably be
+a "trickle up" effect from reducing the burden of other people. For
+example, if a translator started doing some of the work of Francisco
+(the Translation Meister), he would have more time to investigate
+problems himself instead of asking me to help. Similarly, if a developer
+offers to seriously mentor one or two new programmers, that might mean
+one or two fewer programmers who come to me for help because everybody
+else is ignoring them. If you're a new contributor, then spend some
+extra time talking to other new contributors -- provide moral support
+and somebody to commiserate with, even if you can't discuss anything
+technical!&lt;/p&gt;
+&lt;p&gt;As for me personally... I spend about 2 hours a week on completely
+mindless administration. Stuff that could almost be done by a computer
+program. I could easily write 5 or 6 sentences on paper, and somebody
+could follow those blindly. For example, twice a week I send a "patches
+countdown" email.&lt;/p&gt;
+&lt;ol class="arabic simple"&gt;
+&lt;li&gt;go to the &lt;a class="reference external" href="http://code.google.com/p/lilypond/issues/list?can=2&amp;amp;q=label:patch%20patch=review&amp;amp;sort=patch&amp;amp;colspec=ID%20Type%20Status%20Priority%20Stars%20Owner%20Patch%20Summary"&gt;list of patches for
+review&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;pick two or three issues&lt;/li&gt;
+&lt;li&gt;find the codereview URL inside the issue&lt;/li&gt;
+&lt;li&gt;click on that link&lt;/li&gt;
+&lt;li&gt;if there are any reviews, check that the last review is not negative&lt;/li&gt;
+&lt;li&gt;include the subject line and link to the codereview page in an email
+to lilypond-devel&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;All I need to offload this task is a reliable person who doesn't mind a
+bit of boredom offering to do it. 15 minutes, twice a week. If there's
+anything unusual, I'm happy to discuss it (and possibly modify the
+instructions to handle such cases). But I'm not asking for any knowledge
+or creativity.&lt;/p&gt;
+&lt;p&gt;There are other tasks which &lt;em&gt;would&lt;/em&gt; require knowledge and/or creativity.
+For example, many people ask for a changelog -- what's new in each
+release? If somebody is interested in lilypond development, they could
+spend 1-2 hours a week reading the developer email list and the git
+changelog, then writing a 3-4 sentence summary for each release. That
+would be a nice "gentle" introduction to how things work, and it would
+benefit many users.&lt;/p&gt;
+&lt;p&gt;Similarly, there are some tasks which are regular weekly affairs, and
+others which are one-time. Here's a great non-really-technical one-time
+task: our list of &lt;a class="reference external" href="http://lilypond.org/doc/v2.15/Documentation/contributor/major-release-checklist"&gt;places to send release announcements
+to&lt;/a&gt;
+is quite old. Half of the links don't work. So I haven't bothered to
+make any release announcements (other than our own webpage) at all. If
+somebody wanted to spread the word, they could spend 2-5 hours looking
+for relevant places to announce lilypond, maybe asking for other
+suggestions from lilypond-user, and make a nice list. Then either send
+our release announcement to those places himself, or else ask me to do
+it. I wouldn't mind doing it as long as all the links work and I don't
+need to hunt around to find out how to send the announcement (i.e. give
+me a specific link to the announcement form, not a generic link to the
+main website!)&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="square-pegs-into-round-holes"&gt;
+&lt;h2&gt;Square pegs into round holes&lt;/h2&gt;
+&lt;p&gt;In the past, we haven't done a good job of organizing people in
+LilyPond. Some people are suited to regular work; other people are
+suited to one-time jobs. Some people like technical challenges and
+creative freedom; other people prefer a rigid set of guidelines so they
+know that they're not making any mistakes.&lt;/p&gt;
+&lt;p&gt;We need people for all sorts of tasks, and over the next few weeks, I'm
+really going to try to make sure that everybody has a job that suits
+them. We've lost a lot of potential effort by asking people to do tasks
+which don't really appeal to them, and then not having those jobs "open"
+when another person offers to help.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2011-06-11-lilypond-2.14.html</guid><pubDate>Sat, 11 Jun 2011 15:10:00 GMT</pubDate></item><item><title>Vivi's first academic publication: SMC 2011</title><link>http://percival-music.ca/blog/2011-05-27-smc2011-paper.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;The first paper about Vivi was published in the &lt;a class="reference external" href="http://smc2011.smcnetwork.org"&gt;Sound and Music
+Conference 2011&lt;/a&gt;. It is published
+under a &lt;a class="reference external" href="http://creativecommons.org"&gt;Creative Commons&lt;/a&gt; license:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;a class="reference external" href="http://percival-music.ca/research/percival-smc2011.pdf"&gt;percival-smc2011.pdf&lt;/a&gt;&lt;/blockquote&gt;
+&lt;p&gt;In other news, I'm still working on the refactoring of the source code.
+I barely got any work done during my 3-week vacation, which I guess
+could be considered to be a good thing?&lt;/p&gt;
+&lt;p&gt;I'll be making some posts about general-interest parts of the vacation
+over the next few days or weeks, but at the moment my focus has to be
+work. I spent 3 days in bed (almost) recovering from exhaustion, so I've
+got even more work to catch up on.&lt;/p&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2011-05-27-smc2011-paper.html</guid><pubDate>Fri, 27 May 2011 13:36:00 GMT</pubDate></item><item><title>Artifastring 1.4</title><link>http://percival-music.ca/blog/2011-04-06-artifastring-1.4.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;Artifastring 1.4 is now out (now including video output!), along with
+a heartwarming story: another person is working on this project!
+Welcome to Marcos Press ("tdy")!&lt;/div&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="http://percival-music.ca/artifastring/"&gt;http://percival-music.ca/artifastring/&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;I introduced Vivi to the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;lilypond-user&lt;/span&gt;&lt;/tt&gt; mailing list, sparking a long
+discussion, on both the technical accomplishments of Vivi and the
+musical implications of such work. But in the middle of it, I received a
+very kind offer of a violin model in &lt;a class="reference external" href="http://blender.org"&gt;blender&lt;/a&gt;.
+Blender is a Free 3D content creation suite; amonst other things, it can
+create animations. I was using that for Vivi already, but only with very
+primitive output -- 4 cylinders for the strings, 1 cylinder for the bow,
+cones for the fingers, etc.&lt;/p&gt;
+&lt;p&gt;He sent along an image of the violin, and it looked quite nice. So I
+wrote back to say that I was very interested, and did he also have a bow
+model?&lt;/p&gt;
+&lt;p&gt;He replied that he didn't have a bow model yet, but that he'd do it
+right away, because the bow was easier to do than a violin. A few hours
+later, he sent me a file with both models.&lt;/p&gt;
+&lt;p&gt;The small picture I saw earlier did not do it justice. His models were
+literally jaw-dropping. It includes a sound post. It includes the wires
+attaching the tailpiece to the knob at the bottom of the violin. It
+includes curved f-holes. The strings have different colors of windings.
+The tailpiece has actual holes -- or rather, not just circular holes,
+but correctly-shaped holes -- into which the strings fit. The bridge has
+notches in which the strings fit. Ditto for the nut. The strings wind
+around the tuning pegs.&lt;/p&gt;
+&lt;p&gt;The below picture doesn't do it justice, either... I should have rotated
+the violin a bit more so that you could see more details of the bridge.
+But spending the whole blog post talking about a video without showing
+any graphics would be a bit weird.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://percival-music.ca/blogfiles/vivi-video.jpg"&gt;&lt;img alt="Frame from video" src="http://percival-music.ca/blogfiles/vivi-video.jpg" style="width: 50.0%;"&gt;&lt;/a&gt; (click to enlarge)&lt;/p&gt;
+&lt;p&gt;After I got the file, I must have spent about 30 minutes just looking at
+the model. Zooming in, zooming out, rotating... everywhere I looked,
+there was an incredible amount of detail. I need to learn how to make a
+"fly-by animation" in blender, to show off all the pieces of this.&lt;/p&gt;
+&lt;p&gt;The model also included some text inside the violin, like a "maker's
+mark". I didn't notice it for the first 20 minutes or so, but when I
+read it, I almost cried.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;em&gt;from tdy's 1st
+blender modeling
+for Graham Persival
+Vivi System
+Vivi's 2nd Violin
+Loving OpenSource
+2011&lt;/em&gt;&lt;/blockquote&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Now, I've been working on open-source projects for a long time... since
+2003, actually. I've released my own software as open source. At times,
+I've spent over 60 hours a week on existing open-source projects. I've
+trained approximately 30 people to do documentation work (admittely,
+about half of them just read the guidelines I wrote and didn't need any
+further guidance). I've directly caused literally hundreds of hours of
+work, mostly on LilyPond. I've reviewed patches, mentored new
+contributors, and seen those contributors to become much more
+knowledgeable than me and tell me off for things (that's my favorite
+part of mentoring :). I've had people express interest in work that I'd
+abandoned, and I passed the source code along to them.&lt;/p&gt;
+&lt;p&gt;But this is the first time that somebody's sent a contribution to one of
+my own projects, and it's a whole new feeling.&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;&lt;br&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;I also feel even more inspired to make Vivi better -- with Marcos' work,
+the sound quality is much worse than the video quality. I need to
+improve her bow control much more. I was already planning on doing that,
+of course, but now I have even more motivation. :)&lt;/p&gt;
+&lt;div class="line-block"&gt;
+&lt;div class="line"&gt;Here's an example of the videos it produces:&lt;/div&gt;
+&lt;div class="line"&gt;&lt;a class="reference external" href="http://percival-music.ca/video/black-box.mpeg"&gt;Black-box testing&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;So again, Marcos -- thank you so much! To other people: I've got a
+github repository now, and more bits and pieces will be coming in the
+next few days. What are you waiting for? :)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;a class="reference external" href="https://github.com/gperciva/artifastring"&gt;https://github.com/gperciva/artifastring&lt;/a&gt;&lt;/blockquote&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2011-04-06-artifastring-1.4.html</guid><pubDate>Wed, 06 Apr 2011 10:58:00 GMT</pubDate></item></channel></rss>

@@ -10,7 +10,7 @@
 <link href="../assets/css/custom.css" rel="stylesheet" type="text/css">
 <link rel="alternate" type="application/rss+xml" title="RSS for tag bunnies (en)" href="../categories/bunnies.xml">
 <link rel="canonical" href="http://percival-music.ca/categories/bunnies-32.html">
-<link rel="prev" href="../categories/bunnies.html" type="text/html">
+<link rel="prev" href="../categories/bunnies-33.html" type="text/html">
 <link rel="next" href="../categories/bunnies-31.html" type="text/html">
 <!--[if lt IE 9]><script src="../assets/js/html5.js"></script><![endif]--><link rel="alternate" type="application/rss+xml" title="RSS for tag bunnies (en)" href="../categories/bunnies.xml">
 </head>
@@ -35,7 +35,108 @@
     
     </ul></nav></header><main id="content"><header><h1>Posts about bunnies (old posts, page 32)</h1>
     </header><div class="postindex">
-    <article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2011-08-23-vampire-rabbit.html" class="u-url">Vampire Rabbit</a></h2>
+    <article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2012-11-22-artifastring-2.0.html" class="u-url">Artifastring 2.0</a></h2>
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2012-11-22-artifastring-2.0.html" rel="bookmark"><time class="published dt-published" datetime="2012-11-22T01:06:00Z" title="2012-11-22 01:06">2012-11-22 01:06</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<div class="line-block">
+<div class="line">After over a year of development, I have released Artifastring 2.0.
+This includes higher-quality output, an incredible amount of
+optimizations (up to 100x realtime), and now has multiple distinct
+instrument sounds: 5 different violins, 2 viola, and 3 cellos.</div>
+<div class="line"><a class="reference external" href="http://percival-music.ca/artifastring/">http://percival-music.ca/artifastring/</a></div>
+</div>
+<p>Most of the speed improvements are thanks to the
+<a class="reference external" href="http://eigen.tuxfamily.org">Eigen</a> C++ template library for linear
+algebra. In particular, this enabled me to easily write SIMD code rather
+than using floats.</p>
+<p>Other bits of interest are the realtime OSC server and an interface for
+the <a class="reference external" href="http://charlie-roberts.com/Control/">Control (OSC)</a> app. Users
+with iOS or Android tablets can control the physical modelling with
+their fingers! I'm hoping to have a video in a few days, although I
+still need to find somebody with a video camera. Before you get too
+excited, I should add that this is a proof-of-concept of the
+communication between tablet and computer; I haven't put any thought
+towards the actual GUI or ease of control. My focus is on finishing my
+thesis, so if anybody is interested in making better interfaces, go
+nuts!</p>
+<div class="line-block">
+<div class="line"><br></div>
+</div>
+<p>There's sure to be rough edges left in this release. I'm trying to force
+myself to accept "the perfect is the enemy of the good". I'm having huge
+problems writing my thesis because whenever I write down what I've done,
+I think of possible flaws, which immediately prompts me to spend a week
+or two performing experiments which justify what I've done (or else
+demonstrate a real problem, in which case I spend another week or two
+changing even more!).</p>
+<p>With that in mind, I expect a 2.2 release to happen within the next
+month or two. Of course, if more people test the 2.0 version and report
+problems, I'll have more confidence (and more motivation!) to get the
+2.2 release out there.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2011-08-28-ubuntu-ssh.html" class="u-url">Ubuntu ssh agent admitted failure</a></h2>
+        <div class="metadata">
+            <p class="dateline"><a href="../blog/2011-08-28-ubuntu-ssh.html" rel="bookmark"><time class="published dt-published" datetime="2011-08-28T09:09:00Z" title="2011-08-28 09:09">2011-08-28 09:09</time></a></p>
+        </div>
+    </header><div class="e-content entry-content">
+    <div>
+<div class="line-block">
+<div class="line">Ubuntu 10.04 LTS has a serious bug in ssh/ssh-agent/something which
+causes it to fail to log in to a system even if you have your ssh
+identies set up. This caused me an hour of panic before I found a
+workaround. I'm putting it here in case somebody else has the same
+problem and google finds this for them. (tl;dr: use
+<tt class="docutils literal">SSH_AUTH_SOCK=0sshfoo.bar.baz</tt> )</div>
+</div>
+<p>I swap between two laptops and a desktop regularly. I have a shared
+dotfiles git repository, so my normal settings are fine -- but that
+won't work for stuff like email passwords, or even email. My current
+setup is to use an sd card for personal stuff. (yes, my stuff is in an
+encrypted loop-back partition on that card; I'm not crazy!)</p>
+<p>A few days ago (just after returning to Glasgow), I started having read
+errors on the card. This was particularly sucky because although I'd
+bought a new 16gb card while in Vancouver, I hadn't gotten around to
+carrying that new card, so I was using my old 8gb card. I was planning
+on doing it "soon", but I definitely started to kick myself for not
+getting it set up sooner.</p>
+<p>That said, it was only about 24 hours since I'd made a backup of the sd
+card anyway, and there hadn't been any truly important emails in that
+time. (I know the story should go "... but I didn't mind, because I'm
+using my brother's tarsnap backup service", but it was actually about 3
+days since I'd backed up in tarsnap)</p>
+<p>Fortunately, when I put the card in a different laptop, it read it just
+fine. I copied stuff over, checked that things seemed ok, and then
+started using the new card regularly. Everything seemed fine for a day
+or two, when I discovered that I couldn't log in to various servers. At
+this point, I turned to tarsnap to get a backup of my <tt class="docutils literal">ssh</tt> directory,
+thinking that I'd gotten some freaky bitrot in my private key but
+nowhere else. No joy.</p>
+<p>But wait, it gets worse! Take a look at this:</p>
+<pre class="literal-block">
+gperciva@gperciva-desktop:~$ ssh -v strauss.elec.gla.ac.uk
+OpenSSH_5.3p1 Debian-3ubuntu7, OpenSSL 0.9.8k 25 Mar 2009
+debug1: Reading configuration data /etc/ssh/ssh_config
+debug1: Applying options for *
+debug1: Connecting to strauss.elec.gla.ac.uk [130.209.179.98] port 22.
+...
+debug1: Offering public key: /home/gperciva/.ssh/id_dsa
+debug1: Server accepts key: pkalg ssh-dss blen 817
+Agent admitted failure to sign using the key.
+</pre>
+<p>LOLwut? Server accepts key, agent admitted failure to sign in using the
+key?!</p>
+<p>After a bit of stumbling around, I found a <a class="reference external" href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786">ssh bug
+report</a>
+from 2008 in the ubuntu database. Apparently you can work around it by
+setting <tt class="docutils literal">SSH_AUTH_SOCK=0</tt>. You can also do some weird stuff with
+something called "seahorse", but I think I'll just export the variable.</p>
+</div>
+    </div>
+    </article><article class="h-entry post-text"><header><h2 class="p-name entry-title"><a href="../blog/2011-08-23-vampire-rabbit.html" class="u-url">Vampire Rabbit</a></h2>
         <div class="metadata">
             <p class="dateline"><a href="../blog/2011-08-23-vampire-rabbit.html" rel="bookmark"><time class="published dt-published" datetime="2011-08-23T12:25:00Z" title="2011-08-23 12:25">2011-08-23 12:25</time></a></p>
         </div>
@@ -284,7 +385,7 @@ arrived eventually, exhausted but happy.</p>
 
         <nav class="postindexpager"><ul class="pager">
 <li class="previous">
-                <a href="../categories/bunnies.html" rel="prev">Newer posts</a>
+                <a href="../categories/bunnies-33.html" rel="prev">Newer posts</a>
             </li>
             <li class="next">
                 <a href="../categories/bunnies-31.html" rel="next">Older posts</a>

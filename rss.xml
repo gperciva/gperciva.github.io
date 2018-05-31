@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Living Without the Bunnies</title><link>http://percival-music.ca/</link><description>Research, music, and life of Graham Percival</description><atom:link type="application/rss+xml" href="http://percival-music.ca/rss.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 16 Apr 2018 22:47:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Japan trip</title><link>http://percival-music.ca/blog/2018-04-16-japan-trip-reflections.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;I had a great time in Japan last month!  But it's always worth
+<?xml-stylesheet type="text/xsl" href="assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0"><channel><title>Living Without the Bunnies</title><link>http://percival-music.ca/</link><description>Research, music, and life of Graham Percival</description><atom:link href="http://percival-music.ca/rss.xml" type="application/rss+xml" rel="self"></atom:link><language>en</language><lastBuildDate>Thu, 31 May 2018 19:51:40 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Japan trip</title><link>http://percival-music.ca/blog/2018-04-16-japan-trip-reflections.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;I had a great time in Japan last month!  But it's always worth
 noting what I can learn for future trips.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;Take notes at the end of each day!  At the end of a trip, I'm
@@ -603,7 +603,7 @@ reflected the light):&lt;/p&gt;
 to clean out the gear-teeth.  I happily put the Roomba back
 together again -- but the problem persisted.&lt;/p&gt;
 &lt;p&gt;After a few more disassembly-and-cleaning attempts, it occurred to
-em that in addition to removing the hair and dust, I'd also
+me that in addition to removing the hair and dust, I'd also
 removed any grease and oil.  I added some bicycle grease, put it
 back together, and the Roomba worked perfectly!&lt;/p&gt;
 &lt;p&gt;(I suspect that bicycle grease isn't ideal type of lubricant for

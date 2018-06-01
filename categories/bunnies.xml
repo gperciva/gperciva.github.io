@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Living Without the Bunnies (Posts about bunnies)</title><link>http://percival-music.ca/</link><description></description><atom:link type="application/rss+xml" href="http://percival-music.ca/categories/bunnies.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Mon, 16 Apr 2018 22:47:27 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>Japan trip</title><link>http://percival-music.ca/blog/2018-04-16-japan-trip-reflections.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;I had a great time in Japan last month!  But it's always worth
+<?xml-stylesheet type="text/xsl" href="../assets/xml/rss.xsl" media="all"?><rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/"><channel><title>Living Without the Bunnies (Posts about bunnies)</title><link>http://percival-music.ca/</link><description></description><atom:link type="application/rss+xml" href="http://percival-music.ca/categories/bunnies.xml" rel="self"></atom:link><language>en</language><lastBuildDate>Fri, 01 Jun 2018 00:28:49 GMT</lastBuildDate><generator>Nikola (getnikola.com)</generator><docs>http://blogs.law.harvard.edu/tech/rss</docs><item><title>What's "social dancing"?</title><link>http://percival-music.ca/blog/2018-05-31-what-is-social-dancing.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;I started social dancing two and a half years ago, and it's
+difficult to explain what it's all about.  The term "dance"
+encompasses a huge range of activities, and even if you give
+examples of specific styles (e.g., waltz, swing, salsa,
+quickstep), most people have no idea what it actually involves or
+why it's so enjoyable.&lt;/p&gt;
+&lt;p&gt;The core of social dancing is &lt;strong&gt;communication&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;It's not "listening to the music", it's not "moving your body",
+and it's certainly not "memorize these steps and imitate what you
+saw on TV".  The fundamental part is non-verbal communication
+between two people.&lt;/p&gt;
+&lt;p&gt;The best way illustrate this is one of the simplest partner
+dancing exercises: "the shopping cart".&lt;/p&gt;
+&lt;p&gt;Two people face each other and hold hands, slightly wider than
+hip-width apart.  One of them will be the "leader", and will begin
+the movements.  The other person is the "follower", and will
+respond to those movements.  The goal of the follower is to stay
+the same distance away from the leader.  The goal of the leader is
+to move clearly enough that the follower can react accordingly.&lt;/p&gt;
+&lt;p&gt;For example, if the leader steps forwards, the follower should
+step backwards.  If the leader takes a small step backwards, the
+follower should take a small step forwards.  Simple enough, right?&lt;/p&gt;
+&lt;p&gt;It sounds simple, but there's a lot of complexities that we can
+add.  What if the leader takes a big step forwards, then a small
+step, then a big step backwards?  What if the leader steps to the
+side?  What if leader takes a slow step forwards, then two quick
+backwards steps, then a slow step to the side?  Etc.  There's no
+pre-determined choreography here -- the leader makes it up on the
+spot.  The only way the follower knows what to do is by reacting
+to the subtle pressure of their hands.&lt;/p&gt;
+&lt;p&gt;The name "shopping cart" comes from a helpful visualization -- the
+follower pretends to be a shopping cart.  Shopping carts have
+simple physics: the metal frame doesn't bend, and as long as the
+wheels aren't broken, it moves exactly where you push it.  If you
+keep your hands out and walk forwards, the cart moves along.  If
+you stop moving forwards and step backwards, the cart follows.  If
+you push with one hand and pull with the other, the cart turns in
+one direction.  And if you push the cart and let go, the cart
+keeps on moving until friction slows it to a stop.&lt;/p&gt;
+&lt;p&gt;Bonus round: do the exercise with the follower's eyes closed.
+That's when you &lt;em&gt;really&lt;/em&gt; test the dance connection between the two
+people!&lt;/p&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2018-05-31-what-is-social-dancing.html</guid><pubDate>Thu, 31 May 2018 13:03:00 GMT</pubDate></item><item><title>Japan trip</title><link>http://percival-music.ca/blog/2018-04-16-japan-trip-reflections.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;I had a great time in Japan last month!  But it's always worth
 noting what I can learn for future trips.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;Take notes at the end of each day!  At the end of a trip, I'm
@@ -603,7 +644,7 @@ reflected the light):&lt;/p&gt;
 to clean out the gear-teeth.  I happily put the Roomba back
 together again -- but the problem persisted.&lt;/p&gt;
 &lt;p&gt;After a few more disassembly-and-cleaning attempts, it occurred to
-em that in addition to removing the hair and dust, I'd also
+me that in addition to removing the hair and dust, I'd also
 removed any grease and oil.  I added some bicycle grease, put it
 back together, and the Roomba worked perfectly!&lt;/p&gt;
 &lt;p&gt;(I suspect that bicycle grease isn't ideal type of lubricant for
@@ -994,13 +1035,4 @@ changelog&lt;/a&gt;.&lt;/p&gt;
 (within the next week). After that, expect not much in July. August will
 hopefully see Artifastring being expanded to cover cello, viola, and
 maybe even multiple violins. This relies on a Masters project at the
-University of Glasgow, so it's not under my control.&lt;/p&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2011-06-27-artifastring-1.6.html</guid><pubDate>Mon, 27 Jun 2011 20:54:00 GMT</pubDate></item><item><title>ccbeamer 0.2</title><link>http://percival-music.ca/blog/2011-06-26-ccbeamer-0.2.html</link><dc:creator>Graham Percival</dc:creator><description>&lt;div&gt;&lt;p&gt;I found a &lt;a class="reference external" href="http://blog.hartwork.org/?p=52"&gt;nice set of Creative Commons logos for
-LaTeX&lt;/a&gt;, but they were used with
-&lt;tt class="docutils literal"&gt;\input{cc_beamer}&lt;/tt&gt;. Following advice in a comment at that blog, I've
-turned them into a LaTeX package. Following the spirit of open source --
-not to mention the CC-SA license itself -- here's the source code:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;a class="reference external" href="http://percival-music.ca/blogfiles/ccbeamer-0.2.zip"&gt;ccbeamer-0.2.zip&lt;/a&gt;&lt;/blockquote&gt;
-&lt;p&gt;Note that although the hartwork blog has a general "CC-no derivative
-works, unless otherwise expressly stated", the actual zip file states
-that it is under CC-SA 3.0.&lt;/p&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2011-06-26-ccbeamer-0.2.html</guid><pubDate>Sun, 26 Jun 2011 19:54:00 GMT</pubDate></item></channel></rss>
+University of Glasgow, so it's not under my control.&lt;/p&gt;&lt;/div&gt;</description><category>bunnies</category><guid>http://percival-music.ca/blog/2011-06-27-artifastring-1.6.html</guid><pubDate>Mon, 27 Jun 2011 20:54:00 GMT</pubDate></item></channel></rss>

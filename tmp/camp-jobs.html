@@ -1,27 +1,75 @@
-<html><head>
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<title>WCAMS Camp Tasks</title>
 <style type="text/css">
 h1 {
   text-align: center;
 }
+html {
+  width: 99vw;
+  overflow-x: hidden;
+  font-family: NotoSans, sans-serif;
+  line-height: 1.25;
+}
+div.error {
+  background-color: red;
+}
+table {
+  width: 95%;
+  border: 1px solid grey;
+  border-collapse: collapse;
+}
+table td, table th {
+  vertical-align: top;
+  border: 1px solid grey;
+  border-collapse: collapse;
+}
+table td.jobs ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+table td.jobs li {
+  margin-top: 0.5em;
+}
+table td.jobs {
+  width: 18em;
+  padding: 0.25em 0.5em 0.5em 0.75em;
+}
+div.intro {
+  max-width: 50em;
+  margin: 1em auto;
+}
+input.submit {
+  display: block;
+  margin: auto;
+  margin-bottom: 0.75em;
+}
 details {
-  max-width: 60em;
   background-color: whitesmoke;
-  margin: 1em;
+  margin: 0.5em;
 }
 details summary {
   background-color: aliceblue;
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 </style>
 </head>
 <body>
-<h1>Camp Tasks</h1>
-<p>
-Many campers help out with various tasks at camp.  This year,
-we're trying to organize these jobs in advance.  Please consider
-volunteering to do help out with one or more of these tasks.
-</p>
-<details><summary id="office-staff">Office staff</summary>
+<h1>WCAMS Camp Tasks</h1>
+<div class="intro">
+Please consider offering to help out with one or more of
+these tasks.  The more people who help, the more the workload can
+be spread out.  (If you sign up for many possible tasks, we won't
+load you with all of them!)
+</div>
+<form id="offer" method="post" action="http://localhost:8000/test.py">
+<table>
+<tr>
+<th>Job description</th>
+<th>Might consider doing</th>
+</tr>
+<tr><td><details><summary id="office-staff">Office staff</summary>
 <p>We are expanding the &quot;camp librarian&quot; position, asking volunteers to run the office during open hours by helping people with:</p>
 <blockquote>
 <ul>
@@ -43,20 +91,30 @@ volunteering to do help out with one or more of these tasks.
 <blockquote>
 <ul>
 <li>7:00 - 7:40am (overlapping early breakfast)</li>
-<li>8:10 - 8:45am (overlapping late breakfast, mini-concert, and session 1)</li>
+<li>8:05 - 8:40am (overlapping late breakfast and mini-concert)</li>
 <li>10:40 - 11:00am (snack)</li>
 <li>2 - 3pm</li>
-<li>6:50 - 7:15pm (overlapping late dinner)</li>
+<li>6:45 - 7:30pm (overlapping late dinner and evening session)</li>
 <li>8 - 8:45pm</li>
 </ul>
 </blockquote>
-<p>In addition, we would like 1 or 2 volunteers to staff the office on:</p>
+<p>In addition, we would like a volunteer for music returns on:</p>
 <blockquote>
 <ul>
 <li>the final Saturday, 11am - 12:45</li>
 </ul>
 </blockquote>
-</details><details><summary id="setup-and-teardown">Setup and teardown</summary>
+</details></td><td class="jobs"><ul>
+<li><input type="checkbox" name="office M-F 7:00 - 7:40 am">M-F 7:00 - 7:40 am</li>
+<li><input type="checkbox" name="office M-F 8:00 - 8:40 am">M-F 8:00 - 8:40 am</li>
+<li><input type="checkbox" name="office M-F 10:40 - 11:00 am">M-F 10:40 - 11:00 am</li>
+<li><input type="checkbox" name="office M-F 2:00 - 3:00 pm">M-F 2:00 - 3:00 pm</li>
+<li><input type="checkbox" name="office M-F 6:45 - 7:15 pm">M-F 6:45 - 7:15 pm</li>
+<li><input type="checkbox" name="office M-F 8:00 - 8:45 pm">M-F 8:00 - 8:45 pm</li>
+<li><input type="checkbox" name="office Sat 11:00am - 12:45">Sat 11:00am - 12:45</li>
+</ul></td>
+</tr>
+<tr><td><details><summary id="setup-and-teardown">Setup and teardown</summary>
 <p>There's a lot of physical set-up to do on the first Sunday (and undone on the following Saturday):</p>
 <blockquote>
 <ul>
@@ -65,6 +123,7 @@ volunteering to do help out with one or more of these tasks.
 <li>move instruments from AC 323 to 3rd floor library</li>
 <li>move children's instruments</li>
 <li>set up chairs in the MPR and 3rd floor library</li>
+<li>carrying boxes of photo albums</li>
 </ul>
 </blockquote>
 <p>If you're willing to help with any of these, please sign up! The more people we have, the easier it will be to distribute these tasks.</p>
@@ -81,7 +140,41 @@ volunteering to do help out with one or more of these tasks.
 <li>on Sunday and Saturday: anywhere from 30 minutes to 6 hours (your choice)</li>
 </ul>
 </blockquote>
-</details><details><summary id="camp-porters">Camp porters</summary>
+</details></td><td class="jobs"><ul>
+<li><input type="checkbox" name="setup Sun 22 July">Sun 22 July</li>
+<li><input type="checkbox" name="setup Sat 28 July">Sat 28 July</li>
+<li><input type="checkbox" name="setup Sun 29 July">Sun 29 July</li>
+</ul></td>
+</tr>
+<tr><td><details><summary id="instruments-and-trucks">Instruments and trucks</summary>
+<p>We fill two large trucks with instruments for camp -- electronic keyboards, children's instruments, drumkits, etc. These need to be packed in Vancouver on the last Friday before camp and unloaded at camp; then the reverse happens on the Monday after camp.</p>
+<p>We already have drivers for the trucks, but there's space for two extra people in each truck to help load and unload instruments.</p>
+<p>Physical requirements:</p>
+<blockquote>
+<ul>
+<li>ability to walk unaided</li>
+<li>ability to lift 20 pounds</li>
+</ul>
+</blockquote>
+<dl>
+<dt>Time:</dt>
+<dd><ul>
+<li>8am - 5pm, with approximately 3 hours of moving instruments.</li>
+</ul>
+</dd>
+</dl>
+<p>Honorarium:</p>
+<blockquote>
+<ul>
+<li>$50 per day, as we realize that these non-camp days may require taking time off work.</li>
+</ul>
+</blockquote>
+</details></td><td class="jobs"><ul>
+<li><input type="checkbox" name="trucks Fri 20 July">Fri 20 July</li>
+<li><input type="checkbox" name="trucks Mon 30 July">Mon 30 July</li>
+</ul></td>
+</tr>
+<tr><td><details><summary id="camp-porters">Camp porters</summary>
 <p>Every so often we need to move things during camp:</p>
 <blockquote>
 <ul>
@@ -106,7 +199,11 @@ volunteering to do help out with one or more of these tasks.
 <p>(These are short tasks! Other than the children's concert setup, which will require multiple trips.)</p></li>
 </ul>
 </blockquote>
-</details><details><summary id="outside-signs-at-quest">Outside signs at Quest</summary>
+</details></td><td class="jobs"><ul>
+<li><input type="checkbox" name="porter As needed">As needed</li>
+</ul></td>
+</tr>
+<tr><td><details><summary id="outside-signs-at-quest">Outside signs at Quest</summary>
 <p>New campers like having signs to help them find Quest university, and specific buildings on campus when they first arrive.</p>
 <dl>
 <dt>Time expected:</dt>
@@ -120,7 +217,7 @@ volunteering to do help out with one or more of these tasks.
 <li>Store these signs year-round. Large road signs are 2 meters by 1 meter (approx?), not including 1 meter wire legs. Campus signs are 1 meter by 0.5 meters.</li>
 <li>On Sunday morning (before noon), bring signs to camp, then place:
 <ul>
-<li>3 large road signs, directing traffic to Quest. Locations:
+<li>3 large road signs directing traffic to Quest, at:
 <ul>
 <li><a href="https://www.google.ca/maps/place/49%C2%B044&#39;06.3%22N+123%C2%B007&#39;24.8%22W">https://www.google.ca/maps/place/49%C2%B044'06.3%22N+123%C2%B007'24.8%22W</a></li>
 <li><a href="https://www.google.ca/maps/place/49%C2%B044&#39;24.9%22N+123%C2%B006&#39;59.6%22W">https://www.google.ca/maps/place/49%C2%B044'24.9%22N+123%C2%B006'59.6%22W</a></li>
@@ -132,7 +229,11 @@ volunteering to do help out with one or more of these tasks.
 </ul>
 </dd>
 </dl>
-</details><details><summary id="inside-signs-at-quest">Inside signs at Quest</summary>
+</details></td><td class="jobs"><ul>
+<li><input type="checkbox" name="signs outside Outside signs">Outside signs</li>
+</ul></td>
+</tr>
+<tr><td><details><summary id="inside-signs-at-quest">Inside signs at Quest</summary>
 <p>It's useful to have signs to help campers navigate Quest university and to show how each room is being used during the week. This includes the sign-up sheets.</p>
 <dl>
 <dt>Time expected:</dt>
@@ -147,7 +248,11 @@ volunteering to do help out with one or more of these tasks.
 </ul>
 </dd>
 </dl>
-</details><details><summary id="stage-helpers">Stage helpers</summary>
+</details></td><td class="jobs"><ul>
+<li><input type="checkbox" name="signs inside Sun 22 July">Sun 22 July</li>
+</ul></td>
+</tr>
+<tr><td><details><summary id="stage-helpers">Stage helpers</summary>
 <p>It's useful to have a few extra hands to set up the stage for concerts:</p>
 <blockquote>
 <ul>
@@ -164,11 +269,32 @@ volunteering to do help out with one or more of these tasks.
 <li>Friday 2.5-hour coached ensemble concert (multiple people)</li>
 <li>Sat 1-hour max-mini concert</li>
 <li>Sat 1.5-hour coached ensemble concert</li>
-<li>Sat 1-hour <strong>CHILDREN'S CONCERT MAYBE?</strong></li>
 <li>Sat 3-hour final concert (multiple people)</li>
 </ul>
 </blockquote>
-</details><details><summary id="post-concert-music-sorters">Post-concert music sorters</summary>
+</details></td><td class="jobs"><ul>
+<li><input type="checkbox" name="stage helper Mon mini-concert">Mon mini-concert</li>
+<li><input type="checkbox" name="stage helper Tues mini-concert">Tues mini-concert</li>
+<li><input type="checkbox" name="stage helper Tues faculty concert">Tues faculty concert</li>
+<li><input type="checkbox" name="stage helper Wed mini-concert">Wed mini-concert</li>
+<li><input type="checkbox" name="stage helper Wed faculty concert">Wed faculty concert</li>
+<li><input type="checkbox" name="stage helper Thurs mini-concert">Thurs mini-concert</li>
+<li><input type="checkbox" name="stage helper Thurs faculty concert">Thurs faculty concert</li>
+<li><input type="checkbox" name="stage helper Fri mini-concert">Fri mini-concert</li>
+<li><input type="checkbox" name="stage helper Fri coached ensemble concert">Fri coached ensemble concert</li>
+<li><input type="checkbox" name="stage helper Sat mini-concert">Sat mini-concert</li>
+<li><input type="checkbox" name="stage helper Sat coached ensemble concert">Sat coached ensemble concert</li>
+<li><input type="checkbox" name="stage helper Sat final concert">Sat final concert</li>
+</ul></td>
+</tr>
+<tr><td><details><summary id="saturday-stage-manager">Saturday stage manager</summary>
+<p>We're looking for a stage manager for the final Saturday concert. In particular, we need to know how many chairs &amp; stands we need for each ensemble.</p>
+<p>Your job would be to drop in to the rehearsals on Saturday to count chairs and stands, and make a rough sketch of how they're arranged. Then during the concert, you would relay instructions to the stage helpers (who would run around setting up as you direct), while Geordie tells entertaining stories to the audience.</p>
+</details></td><td class="jobs"><ul>
+<li><input type="checkbox" name="stage helper Sat rehearsals & concert">Sat rehearsals & concert</li>
+</ul></td>
+</tr>
+<tr><td><details><summary id="post-concert-music-sorters">Post-concert music sorters</summary>
 <p>After the final concert, there's usually 8-12 volunteers sorting out the large ensemble music. Each person takes a box of unsorted music (e.g., all the orchestra parts for the large choral work) and sorts it in the order the parts appear in the score.</p>
 <p>Time:</p>
 <blockquote>
@@ -176,7 +302,11 @@ volunteering to do help out with one or more of these tasks.
 <li>30-60 minutes after the final Saturday concert</li>
 </ul>
 </blockquote>
-</details><details><summary id="evening-snack">Evening snack</summary>
+</details></td><td class="jobs"><ul>
+<li><input type="checkbox" name="music sorting Sat after concert">Sat after concert</li>
+</ul></td>
+</tr>
+<tr><td><details><summary id="evening-snack">Evening snack</summary>
 <p>We put out a snack after the evening activities, so we need some volunteers to help. We're hoping to get 3-4 people for preparation and/or clean-up for every evening.</p>
 <p>Tasks:</p>
 <blockquote>
@@ -194,4 +324,46 @@ volunteering to do help out with one or more of these tasks.
 <li>30 minutes for prep and/or 30 minutes for clean-up.</li>
 </ul>
 </blockquote>
-</details></body></html>
+</details></td><td class="jobs"><ul>
+<li><input type="checkbox" name="food Sun prep">Sun prep</li>
+<li><input type="checkbox" name="food Sun clean-up">Sun clean-up</li>
+<li><input type="checkbox" name="food Mon prep">Mon prep</li>
+<li><input type="checkbox" name="food Mon clean-up">Mon clean-up</li>
+<li><input type="checkbox" name="food Tues prep">Tues prep</li>
+<li><input type="checkbox" name="food Tues clean-up">Tues clean-up</li>
+<li><input type="checkbox" name="food Wed prep">Wed prep</li>
+<li><input type="checkbox" name="food Wed clean-up">Wed clean-up</li>
+<li><input type="checkbox" name="food Thurs prep">Thurs prep</li>
+<li><input type="checkbox" name="food Thurs clean-up">Thurs clean-up</li>
+<li><input type="checkbox" name="food Fri prep">Fri prep</li>
+<li><input type="checkbox" name="food Fri clean-up">Fri clean-up</li>
+<li><input type="checkbox" name="food Sat prep">Sat prep</li>
+<li><input type="checkbox" name="food Sat clean-up">Sat clean-up</li>
+</ul></td>
+</tr>
+
+<tr>
+<td></td><td>
+<p>Name:
+  <input type="text" name="name" placeholder="name">
+</p>
+<p>Email:
+  <input type="email" name="email" placeholder="email">
+</p>
+Comments:
+<br>
+<textarea cols="40" rows="5" maxlength="2048" form="offer"
+  name="comments" placeholder="comments"></textarea>
+  <div class="error">DON'T USE, IT'S NOT WORKING YET</div>
+<input class="submit" type="submit" value="Willing to help!">
+  <div class="error">DON'T USE, IT'S NOT WORKING YET</div>
+<p>
+Questions?  Contact
+<a href="mailto:office@wcams.ca">office@wcams.ca</a>
+</p>
+</td>
+</tr>
+</table>
+<br>
+</form>
+</body></html>
